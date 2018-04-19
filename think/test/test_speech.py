@@ -105,8 +105,9 @@ class SyllableTest(unittest.TestCase):
 
 class NumbersTest(unittest.TestCase):
     TEST_PAIRS = [(0, "zero"), (1, "one"), (-4, "negative four"), (53, "fifty-three"),
-        (129, "one hundred twenty-nine"), (2463, "two thousand four hundred sixty-three"),
-        (7000008, "seven million eight")]
+                  (129, "one hundred twenty-nine"), (2463,
+                                                     "two thousand four hundred sixty-three"),
+                  (7000008, "seven million eight")]
 
     def test_num_to_text(self):
         agent = Agent()

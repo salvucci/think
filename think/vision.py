@@ -226,9 +226,11 @@ class Eyes(Module):
     def prepare(self, visual, obj, enc_start, enc_dur):
         if self.last_prep_cancel is not None:
             self.last_prep_cancel.try_cancel()
-        sd = .1 * self.vision.display.degrees_to_pixels(self._compute_eccentricity(visual))
+        sd = .1 * \
+            self.vision.display.degrees_to_pixels(
+                self._compute_eccentricity(visual))
         new_loc = Location(visual.x + random.gauss(0, sd),
-                                 visual.y + random.gauss(0, sd))
+                           visual.y + random.gauss(0, sd))
         self.log("prepare {}".format(new_loc))
         duration = self._rand_time(self.prep_time)
 

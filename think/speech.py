@@ -59,15 +59,15 @@ class Speech(Module):
                            "subvocalizing", "subvocalized")
 
     _num_text = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
-        "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
-        "seventeen", "eighteen", "nineteen"]
+                 "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+                 "seventeen", "eighteen", "nineteen"]
     _num_tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy",
-                "eighty", "ninety"]
+                 "eighty", "ninety"]
 
     def _num_to_text(self, n, divisor, unit):
         txt = self.num_to_text(n // divisor) + " " + unit
         rem = n % divisor
-        return txt if rem==0 else txt + " " + self.num_to_text(rem)
+        return txt if rem == 0 else txt + " " + self.num_to_text(rem)
 
     def num_to_text(self, n):
         if n < 0:
@@ -77,7 +77,7 @@ class Speech(Module):
         elif n < 100:
             txt = self._num_tens[n // 10]
             rem = n % 10
-            return txt if rem==0 else txt + "-" + self.num_to_text(rem)
+            return txt if rem == 0 else txt + "-" + self.num_to_text(rem)
         elif n < 1000:
             return self._num_to_text(n, 100, "hundred")
         elif n < 1000000:

@@ -7,7 +7,8 @@ class Chunk(Item):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.id = self.get('id') or self.get('name') or self.get('isa') or 'chunk'
+        self.id = self.get('id') or self.get(
+            'name') or self.get('isa') or 'chunk'
         self.creation_time = None
         self.activation = -math.log(.100)
         self.transient_activation = None

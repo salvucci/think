@@ -11,7 +11,8 @@ class ReadingTest(unittest.TestCase):
 
     SENTENCES = [
         [("margie", 1), ("moved", 181), ("into", 1789), ("her", 3036), ("new", 1635),
-         ("apartment", 81), ("at", 5372), ("the", 69974), ("end", 409), ("of", 36414),
+         ("apartment", 81), ("at", 5372), ("the",
+                                           69974), ("end", 409), ("of", 36414),
          ("the", 69974), ("summer", 134)],
         [("the", 69974), ("principal", 92), ("introduced", 52), ("the", 69974), ("new", 1635),
          ("president", 382), ("of", 36414), ("the", 69974), ("junior", 75), ("class", 207)],

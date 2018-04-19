@@ -31,7 +31,8 @@ class MemoryTest(unittest.TestCase):
 
         memory.add(isa='dog', name='Spot', owner='John')
         self.assertEqual('Spot', memory.recall(isa='dog').name)
-        self.assertEqual('Whiskers', memory.recall(Query().ne('isa', 'dog')).name)
+        self.assertEqual('Whiskers', memory.recall(
+            Query().ne('isa', 'dog')).name)
 
         chunk = Chunk(isa='cat', name='Whiskers', owner='Jen')
         self.assertEqual('Whiskers', chunk.id)

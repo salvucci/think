@@ -24,7 +24,7 @@ class Item:
             self.set(slot, val)
         else:
             super().__setattr__(slot, val)
-    
+
     def unset(self, slot):
         self.slots.pop(slot, None)
         return self
@@ -155,10 +155,10 @@ class Area(Location):
         self._reset_corners()
 
     def _reset_corners(self):
-        self.x1 = self.x - self.w/2
-        self.x2 = self.x + self.w/2
-        self.y1 = self.y - self.h/2
-        self.y2 = self.y + self.h/2
+        self.x1 = self.x - self.w / 2
+        self.x2 = self.x + self.w / 2
+        self.y1 = self.y - self.h / 2
+        self.y2 = self.y + self.h / 2
 
     def resize(self, w, h):
         self.w = w

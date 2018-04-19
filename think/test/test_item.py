@@ -17,7 +17,7 @@ class ItemTest(unittest.TestCase):
 
         item.unset('slot2')
         self.assertEqual(None, item.get('slot2'))
-        
+
         item = Item(slot='val', slot2='val2')
         item2 = Item(slot='val', slot2='val2')
         self.assertTrue(item.equals(item))
@@ -49,7 +49,7 @@ class QueryTest(unittest.TestCase):
         self.assertFalse(Query().ne('slot', 3).matches(item))
         self.assertTrue(Query().ne('slot', 2).matches(item))
         self.assertTrue(Query().ne('slot', 4).matches(item))
-        
+
         self.assertFalse(Query().gt('slot', 3).matches(item))
         self.assertTrue(Query().gt('slot', 2).matches(item))
         self.assertFalse(Query().gt('slot', 4).matches(item))
@@ -77,7 +77,7 @@ class LocationTest(unittest.TestCase):
         loc.move(50, 60)
         self.assertEqual(50, loc.x)
         self.assertEqual(60, loc.y)
-        
+
         loc2 = Location(30, 40, 'loc')
         self.assertEqual('loc', loc2.get('isa'))
         self.assertAlmostEqual(28.28, loc2.distance_to(loc), 2)
@@ -105,7 +105,7 @@ class AreaTest(unittest.TestCase):
         self.assertEqual(75, area.x2)
         self.assertEqual(35, area.y1)
         self.assertEqual(85, area.y2)
-        area.resize(10, 20)        
+        area.resize(10, 20)
 
         self.assertTrue(area.contains(Location(50, 60)))
         self.assertTrue(area.contains(Location(45, 50)))
@@ -115,5 +115,7 @@ class AreaTest(unittest.TestCase):
         self.assertFalse(area.contains(Location(45, 49)))
         self.assertFalse(area.contains(Location(55, 71)))
 
-        self.assertAlmostEqual(10, area.approach_width_from(Location(0, 60)), 2)
-        self.assertAlmostEqual(20, area.approach_width_from(Location(50, 0)), 2)
+        self.assertAlmostEqual(
+            10, area.approach_width_from(Location(0, 60)), 2)
+        self.assertAlmostEqual(
+            20, area.approach_width_from(Location(50, 0)), 2)

@@ -15,7 +15,8 @@ class TypingTest(unittest.TestCase):
     def test_timing(self, output=False):
         agent = Agent(output=output)
         typing = Typing(Hands(agent))
-        self.assertAlmostEqual(6.597, typing.typing_time("Hello there. What's up?"), 1)
+        self.assertAlmostEqual(6.597, typing.typing_time(
+            "Hello there. What's up?"), 1)
 
 
 class MouseTest(unittest.TestCase):
@@ -33,7 +34,8 @@ class MouseTest(unittest.TestCase):
                 def fn():
                     vision.clear()
                     agent.wait(1.0)
-                    self.button = Visual(random.randint(0, 500), random.randint(0, 500), 30, 30, 'button')
+                    self.button = Visual(random.randint(
+                        0, 500), random.randint(0, 500), 30, 30, 'button')
                     vision.add(self.button, "X")
                 agent.run(fn)
         update()

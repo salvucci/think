@@ -18,7 +18,8 @@ class PairedAssociatesTest(unittest.TestCase):
         self.rt = Data(PairedAssociatesTest.N_BLOCKS)
         for _ in range(PairedAssociatesTest.N_SIMULATIONS):
             self.run_trial()
-        result_correct = self.correct.analyze(PairedAssociatesTest.HUMAN_CORRECT)
+        result_correct = self.correct.analyze(
+            PairedAssociatesTest.HUMAN_CORRECT)
         if output:
             result_correct.output("Correctness", 2)
         result_rt = self.rt.analyze(PairedAssociatesTest.HUMAN_RT)
@@ -50,7 +51,8 @@ class PairedAssociatesTest(unittest.TestCase):
                     self.trial_start = agent.time()
                     vision.clear().add(Visual(50, 50, 20, 20, 'word'), pair[0])
                     agent.wait(5.0)
-                    vision.clear().add(Visual(50, 50, 20, 20, 'digit'), pair[1])
+                    vision.clear().add(
+                        Visual(50, 50, 20, 20, 'digit'), pair[1])
                     agent.wait(5.0)
         agent.run(fn)
 
