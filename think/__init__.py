@@ -1,3 +1,4 @@
+from think.process import *
 from think.agent import *
 from think.item import *
 from think.memory import *
