@@ -51,17 +51,17 @@ class SlotQuery:
 
     def matches(self, item):
         val = item.get(self.slot)
-        if self.op == 'eq':
+        if self.op == '=':
             return val == self.val
-        elif self.op == 'ne':
+        elif self.op == '!=':
             return val != self.val
-        elif self.op == 'gt':
+        elif self.op == '>':
             return val > self.val
-        elif self.op == 'ge':
+        elif self.op == '>=':
             return val >= self.val
-        elif self.op == 'lt':
+        elif self.op == '<':
             return val < self.val
-        elif self.op == 'le':
+        elif self.op == '<=':
             return val <= self.val
         else:
             return False
@@ -78,27 +78,27 @@ class Query:
             self.eq(slot, val)
 
     def eq(self, slot, val):
-        self.slotqs.append(SlotQuery(slot, 'eq', val))
+        self.slotqs.append(SlotQuery(slot, '=', val))
         return self
 
     def ne(self, slot, val):
-        self.slotqs.append(SlotQuery(slot, 'ne', val))
+        self.slotqs.append(SlotQuery(slot, '!=', val))
         return self
 
     def gt(self, slot, val):
-        self.slotqs.append(SlotQuery(slot, 'gt', val))
+        self.slotqs.append(SlotQuery(slot, '>', val))
         return self
 
     def ge(self, slot, val):
-        self.slotqs.append(SlotQuery(slot, 'ge', val))
+        self.slotqs.append(SlotQuery(slot, '>=', val))
         return self
 
     def lt(self, slot, val):
-        self.slotqs.append(SlotQuery(slot, 'lt', val))
+        self.slotqs.append(SlotQuery(slot, '<', val))
         return self
 
     def le(self, slot, val):
-        self.slotqs.append(SlotQuery(slot, 'le', val))
+        self.slotqs.append(SlotQuery(slot, '<=', val))
         return self
 
     def get(self, slot, op=None, val=None):
