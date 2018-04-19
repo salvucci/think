@@ -14,7 +14,6 @@ class SpeechTest(unittest.TestCase):
 
 
 class SyllableTest(unittest.TestCase):
-
     TEST_WORDS = {"the": 1, "of": 1, "to": 1,
                   "and": 1, "a": 1, "in": 1, "is": 1, "it": 1, "you": 1, "that": 1, "he": 1,
                   "was": 1, "for": 1, "on": 1, "are": 1, "with": 1, "as": 1, "I": 1, "his": 1,
@@ -100,7 +99,20 @@ class SyllableTest(unittest.TestCase):
         for word, syll in SyllableTest.TEST_WORDS.items():
             count = speech.count_syllables(word)
             if syll != count:
-                #print("error: '{}'={} x {}".format(word, syll, count))
                 errors += 1
-        # print(errors)
+        self.assertEqual(errors, 0)
+
+
+class NumbersTest(unittest.TestCase):
+    TEST_PAIRS = [(0, "zero"), (1, "one"), (-4, "negative four"), (53, "fifty-three"),
+        (129, "one hundred twenty-nine"), (2463, "two thousand four hundred sixty-three"),
+        (7000008, "seven million eight")]
+
+    def test_num_to_text(self):
+        agent = Agent()
+        speech = Speech(agent)
+        errors = 0
+        for pair in NumbersTest.TEST_PAIRS:
+            if speech.num_to_text(pair[0]) != pair[1]:
+                errors += 1
         self.assertEqual(errors, 0)

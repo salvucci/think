@@ -57,3 +57,32 @@ class Speech(Module):
         for word in text.split():
             self._say_word(word, "subvocalize",
                            "subvocalizing", "subvocalized")
+
+    _num_text = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
+        "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+        "seventeen", "eighteen", "nineteen"]
+    _num_tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy",
+                "eighty", "ninety"]
+
+    def _num_to_text(self, n, divisor, unit):
+        txt = self.num_to_text(n // divisor) + " " + unit
+        rem = n % divisor
+        return txt if rem==0 else txt + " " + self.num_to_text(rem)
+
+    def num_to_text(self, n):
+        if n < 0:
+            return "negative " + self.num_to_text(-n)
+        elif n < 20:
+            return self._num_text[n]
+        elif n < 100:
+            txt = self._num_tens[n // 10]
+            rem = n % 10
+            return txt if rem==0 else txt + "-" + self.num_to_text(rem)
+        elif n < 1000:
+            return self._num_to_text(n, 100, "hundred")
+        elif n < 1000000:
+            return self._num_to_text(n, 1000, "thousand")
+        elif n < 1000000000:
+            return self._num_to_text(n, 1000000, "million")
+        elif n < 1000000000000:
+            return self._num_to_text(n, 1000000000, "billion")
