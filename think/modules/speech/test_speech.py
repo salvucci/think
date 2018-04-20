@@ -101,20 +101,3 @@ class SyllableTest(unittest.TestCase):
             if syll != count:
                 errors += 1
         self.assertEqual(errors, 0)
-
-
-class NumbersTest(unittest.TestCase):
-    TEST_PAIRS = [(0, "zero"), (1, "one"), (-4, "negative four"),
-                  (53, "fifty-three"),
-                  (129, "one hundred twenty-nine"),
-                  (2463, "two thousand four hundred sixty-three"),
-                  (7000008, "seven million eight")]
-
-    def test_num_to_text(self):
-        agent = Agent()
-        speech = Speech(agent)
-        errors = 0
-        for pair in NumbersTest.TEST_PAIRS:
-            if speech.num_to_text(pair[0]) != pair[1]:
-                errors += 1
-        self.assertEqual(errors, 0)

@@ -7,7 +7,7 @@ _DEBUG = False
 
 class Agent(Process):
 
-    def __init__(self, name="agent", clock=None, output=True):
+    def __init__(self, name="agent", clock=None, output=False):
         super().__init__(name, clock or Clock(output=output))
         self.think_time = .050
         self.clock.register(threading.current_thread())
