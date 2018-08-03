@@ -1,5 +1,6 @@
-from think import Clock, Process
 import threading
+from .clock import Clock
+from .process import Process
 
 
 _DEBUG = False

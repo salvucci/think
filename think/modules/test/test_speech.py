@@ -1,5 +1,5 @@
 import unittest
-from think import Speech, Agent
+from think import Agent, Speech
 
 
 class SpeechTest(unittest.TestCase):
@@ -14,6 +14,7 @@ class SpeechTest(unittest.TestCase):
 
 
 class SyllableTest(unittest.TestCase):
+
     TEST_WORDS = {"the": 1, "of": 1, "to": 1,
                   "and": 1, "a": 1, "in": 1, "is": 1, "it": 1, "you": 1, "that": 1, "he": 1,
                   "was": 1, "for": 1, "on": 1, "are": 1, "with": 1, "as": 1, "I": 1, "his": 1,
