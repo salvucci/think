@@ -42,7 +42,7 @@ class Clock:
         if isinstance(output, logging.Logger):
             self.logger = output
         elif output:
-            self.logger = logger.get_think_logger()
+            self.logger = get_think_logger()
         else:
             self.logger = None
 
