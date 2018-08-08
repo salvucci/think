@@ -7,3 +7,4 @@ from .mouse import Mouse
 from .speech import Speech
 from .typing import Typing
 from .vision import Visual, Vision
+from .audition import Aural, Audition
