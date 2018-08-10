@@ -1,6 +1,5 @@
 import unittest
 from think import Agent, Audition, Aural, Query
-from ..utilities import text_to_words
 
 
 class AuditionTest(unittest.TestCase):
