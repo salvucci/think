@@ -1,5 +1,5 @@
-from think import Agent, Vision, Visual, Hands, Mouse
 import random
+from think import Agent, Vision, Visual, Hands, Mouse
 
 
 class ClickAMole:
