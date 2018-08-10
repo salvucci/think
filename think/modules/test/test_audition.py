@@ -1,33 +1,29 @@
 import unittest
 from think import Agent, Audition, Aural, Query
+from ..utilities import text_to_words
 
 
 class AuditionTest(unittest.TestCase):
 
-    def test_audition(self, output=True):
+    def test_audition(self, output=False):
         agent = Agent(output=output)
-        aud = Audition(agent)
+        audition = Audition(agent)
 
+        word = 'Hello'
         aural = Aural('word')
-        aud.add(aural, "Hello")
-        aural2 = aud.listen_for(isa='word')
+        audition.add(aural, word)
+        aural2 = audition.listen(isa='word')
         self.assertEqual(aural, aural2)
+        word2 = audition.encode(aural2)
+        self.assertEqual(word, word2)
 
-        aud.add_speech("Looks like this is working.")
-        for _ in range(5):
-            word = aud.listen_for_and_encode(isa='word')
-            print(word)
+        text = 'Looks like this is working'
+        audition.add_speech(text)
+        word = audition.listen_and_encode(isa='word')
+        heard = []
+        while word is not None:
+            heard.append(word)
+            word = audition.listen_and_encode(isa='word')
+        self.assertEqual(text, ' '.join(heard))
 
-        # aud.add(Aural('word'), "Hello")
-        # aud.add(Aural('word'), "Goodbye")
-
-        # self.assertEqual("Hello", aud.find_and_encode(
-        #     Query(isa='text').lt('x', 100)))
-        # self.assertEqual("Goodbye", aud.find_and_encode(seen=False))
-
-        # aud.start_wait_for(isa='cross')
-        # agent.wait(2.0)
-        # aud.add(Aural(200, 200, 20, 20, 'cross'), "cross")
-        # self.assertEqual("cross", aud.encode(aud.get_found()))
-        # self.assertAlmostEqual(2.7, agent.time(), 1)
         agent.wait_for_all()
