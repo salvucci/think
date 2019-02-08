@@ -15,6 +15,9 @@ class Item:
         else:
             return super().__getattribute__(slot)
 
+    def has(self, slot):
+        return slot in self.slots
+
     def set(self, slot, val):
         self.slots[slot] = val
         return self

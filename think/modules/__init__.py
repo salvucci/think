@@ -8,3 +8,5 @@ from .speech import Speech
 from .typing import Typing
 from .vision import Visual, Vision
 from .audition import Aural, Audition
+from .instruction import Instruction
+from .language import Language

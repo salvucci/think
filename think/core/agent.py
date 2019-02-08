@@ -13,12 +13,19 @@ class Agent(Process):
         self.think_time = .050
         self.clock.register(threading.current_thread())
         self.think_worker = Worker("think", self)
+        self.modules = {}
 
     def indexed_name(self):
         name = self.name
         if self.clock.n_children() > 1:
             name += "[{}]".format(self.clock.thread_index())
         return name
+    
+    def add_module(self, module):
+        self.modules[module.name] = module
+    
+    def get_module(self, name):
+        return self.modules[name]
 
     def think(self, message):
         self.think_worker.acquire()
@@ -35,6 +42,7 @@ class Module(Process):
     def __init__(self, name, agent):
         super().__init__(name, agent.clock)
         self.agent = agent
+        agent.add_module(self)
 
     def think(self, message):
         self.agent.think(message)
