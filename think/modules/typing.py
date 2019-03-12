@@ -7,7 +7,7 @@ class Typing(Module):
     DEFAULT_WPM = 40
 
     def __init__(self, hands, keyboard=Keyboard()):
-        super().__init__("hands", hands.agent)
+        super().__init__("typing", hands.agent)
         self.hands = hands
         self.keyboard = keyboard
         self.worker = hands.worker

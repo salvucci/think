@@ -5,7 +5,7 @@ from think import Module, Location
 class Mouse(Module):
 
     def __init__(self, hands, vision):
-        super().__init__("hands", hands.agent)
+        super().__init__("mouse", hands.agent)
         self.hands = hands
         self.vision = vision
         self.worker = hands.worker

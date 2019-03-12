@@ -24,7 +24,7 @@ class Agent(Process):
     def add_module(self, module):
         self.modules[module.name] = module
     
-    def get_module(self, name):
+    def module(self, name):
         return self.modules[name]
 
     def think(self, message):
