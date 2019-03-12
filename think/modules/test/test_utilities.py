@@ -1,5 +1,5 @@
 import unittest
-from ..utilities import count_syllables
+from think.modules.utilities import count_syllables
 
 
 class SyllableTest(unittest.TestCase):
