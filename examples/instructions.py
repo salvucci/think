@@ -23,13 +23,13 @@ class TypeLetterTask:
         instruction = agent.instruction
 
         def read_executor(step, context):
-            obj = step.obj
+            obj = step.object
             query = Query(x=step.x, y=step.y)
             context.set(obj, vision.find_and_encode(query))
         instruction.set_executor('read', read_executor)
 
         def type_executor(step, context):
-            obj = step.obj
+            obj = step.object
             typing.type(context.get(obj))
         instruction.set_executor('type', type_executor)
 
