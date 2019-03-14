@@ -7,10 +7,10 @@ class _InstructionGoal:
 
     def __init__(self, name):
         self.name = name
-        self.steps = []
+        self.actions = []
 
-    def add(self, step):
-        self.steps.append(step)
+    def add(self, action):
+        self.actions.append(action)
 
 
 class Instruction(Module):
@@ -21,7 +21,7 @@ class Instruction(Module):
         self.language = language
         self.audition = audition
         self.goals = {}
-        self.executors = {}
+        self.executors = []
 
     def _next_sem(self):
         text = self.audition.listen_for_and_encode()
@@ -37,30 +37,31 @@ class Instruction(Module):
         previous = 'start'
         sem = self._next_sem()
         while sem is not None and sem.isa == 'action':
-            step = Chunk(**sem.slots)
-            step.set('goal', goal.name).set('previous', previous)
-            goal.add(step)
-            self.memory.store(step)
-            previous = step
+            action = Chunk(**sem.slots)
+            action.set('goal', goal.name).set('previous', previous)
+            goal.add(action)
+            self.memory.store(action)
+            previous = action
             sem = self._next_sem()
         return goal.name
 
-    def set_executor(self, action, fn):
-        self.executors[action] = fn
+    def add_executor(self, executor):
+        self.executors.append(executor)
+        return self
 
     def execute(self, name, context=None):
         if name not in self.goals:
             raise Exception
         goal = self.goals[name]
         self.log('executing goal {}'.format(goal.name))
-        if context is None:
-            context = Item()
+        context = context or Item()
         previous = 'start'
-        for step in goal.steps:
-            if step.action in self.executors:
-                chunk = self.memory.recall(goal=goal.name, previous=previous)
-                self.log('executing step {}'.format(step))
-                executor = self.executors[step.action]
-                executor(step, context)
-            previous = step
+        for action in goal.actions:
+            self.memory.recall(goal=goal.name, previous=previous)
+            self.log('executing action {}'.format(action))
+            for executor in self.executors:
+                executed = executor(action, context)
+                if executed:
+                    break
+            previous = action
         return context

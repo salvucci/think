@@ -3,22 +3,21 @@ from think import Module, Query, Item
 
 class Language(Module):
 
-    def __init__(self, agent, vision):
+    def __init__(self, agent):
         super().__init__('instruction', agent)
-        self.vision = vision
+        self.interpreters = []
+    
+    def add_interpreter(self, interpreter):
+        self.interpreters.append(interpreter)
+        return self
 
     def interpret(self, text):
         words = text.split(' ')
         if len(words) == 2 and words[0] == 'to':
             return Item(isa='goal', name=words[1])
-        elif words[0] == 'read':
-            sem = Item(isa='action', action='read', object=words[1])
-            pointer = self.vision.find(isa='pointer')
-            if pointer is not None:
-                self.vision.encode(pointer)
-                sem.set('x', pointer.x).set('y', pointer.y)
-            return sem
-        elif words[0] == 'done':
-            return Item(isa='done')
         else:
-            return Item(isa='action', action=words[0], object=words[1])
+            for interpreter in self.interpreters:
+                sem = interpreter(words)
+                if sem:
+                    return sem
+            return None

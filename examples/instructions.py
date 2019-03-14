@@ -1,4 +1,4 @@
-from think import Agent, Memory, Aural, Audition, Vision, Visual, Query, Language, Instruction, Typing, Hands
+from think import Agent, Memory, Aural, Audition, Vision, Item, Visual, Query, Language, Instruction, Typing, Hands
 
 
 class TypeLetterAgent(Agent):
@@ -6,12 +6,36 @@ class TypeLetterAgent(Agent):
     def __init__(self):
         super().__init__(output=True)
         self.vision = Vision(self)
-        self.language = Language(self, self.vision)
         self.memory = Memory(self)
         self.audition = Audition(self)
         self.typing = Typing(Hands(self))
+
+        def interpreter(words):
+            if words[0] == 'read':
+                sem = Item(isa='action', type='read', object=words[1])
+                pointer = self.vision.find(isa='pointer')
+                if pointer is not None:
+                    self.vision.encode(pointer)
+                    sem.set('x', pointer.x).set('y', pointer.y)
+                return sem
+            elif words[0] == 'done':
+                return Item(isa='done')
+            else:
+                return Item(isa='action', type=words[0], object=words[1])
+
+        self.language = Language(self)
+        self.language.add_interpreter(interpreter)
+
+        def executor(action, context):
+            if action.type == 'read':
+                query = Query(x=action.x, y=action.y)
+                context.set(action.object, self.vision.find_and_encode(query))
+            elif action.type == 'type':
+                self.typing.type(context.get(action.object))
+
         self.instruction = Instruction(
             self, self.memory, self.audition, self.language)
+        self.instruction.add_executor(executor)
 
 
 class TypeLetterTask:
@@ -21,17 +45,6 @@ class TypeLetterTask:
         audition = agent.audition
         typing = agent.typing
         instruction = agent.instruction
-
-        def read_executor(step, context):
-            obj = step.object
-            query = Query(x=step.x, y=step.y)
-            context.set(obj, vision.find_and_encode(query))
-        instruction.set_executor('read', read_executor)
-
-        def type_executor(step, context):
-            obj = step.object
-            typing.type(context.get(obj))
-        instruction.set_executor('type', type_executor)
 
         typed = []
 

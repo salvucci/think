@@ -1,5 +1,5 @@
 import unittest
-from think import Agent, Memory, Aural, Audition, Vision, Visual, Query, Language, Instruction, Typing, Hands
+from think import Agent, Memory, Aural, Audition, Vision, Item, Visual, Query, Language, Instruction, Typing, Hands
 
 
 class InstructionTest(unittest.TestCase):
@@ -7,27 +7,42 @@ class InstructionTest(unittest.TestCase):
     def test_instruction_type(self, output=False):
         agent = Agent(output=output)
         vision = Vision(agent)
-        language = Language(agent, vision)
         memory = Memory(agent)
         audition = Audition(agent)
-        typing = Typing(Hands(agent))
+
+        def interpreter(words):
+            if words[0] == 'read':
+                sem = Item(isa='action', type='read', object=words[1])
+                pointer = vision.find(isa='pointer')
+                if pointer is not None:
+                    vision.encode(pointer)
+                    sem.set('x', pointer.x).set('y', pointer.y)
+                return sem
+            elif words[0] == 'done':
+                return Item(isa='done')
+            else:
+                return Item(isa='action', type=words[0], object=words[1])
+
+        language = Language(agent)
+        language.add_interpreter(interpreter)
+
+        def executor(action, context):
+            if action.type == 'read':
+                query = Query(x=action.x, y=action.y)
+                context.set(action.object, vision.find_and_encode(query))
+            elif action.type == 'type':
+                typing.type(context.get(action.object))
+
         instruction = Instruction(agent, memory, audition, language)
+        instruction.add_executor(executor)
+
         typed = []
 
         def type_handler(key):
             typed.append(key)
+
+        typing = Typing(Hands(agent))
         typing.add_type_fn(type_handler)
-
-        def read_executor(step, context):
-            obj = step.obj
-            query = Query(x=step.x, y=step.y)
-            context.set(obj, vision.find_and_encode(query))
-        instruction.set_executor('read', read_executor)
-
-        def type_executor(step, context):
-            obj = step.obj
-            typing.type(context.get(obj))
-        instruction.set_executor('type', type_executor)
 
         vision.add(Visual(50, 50, 20, 20, 'text'), 'a')
         pointer = Visual(50, 50, 1, 1, 'pointer')
@@ -64,16 +79,31 @@ class InstructionTest(unittest.TestCase):
     def test_instruction_read(self, output=False):
         agent = Agent(output=output)
         vision = Vision(agent)
-        language = Language(agent, vision)
         memory = Memory(agent)
         audition = Audition(agent)
-        instruction = Instruction(agent, memory, audition, language)
 
-        def read_executor(step, context):
-            obj = step.obj
-            query = Query(x=step.x, y=step.y)
-            context.set(obj, vision.find_and_encode(query))
-        instruction.set_executor('read', read_executor)
+        def interpreter(words):
+            if words[0] == 'read':
+                sem = Item(isa='action', type='read', object=words[1])
+                pointer = vision.find(isa='pointer')
+                if pointer is not None:
+                    vision.encode(pointer)
+                    sem.set('x', pointer.x).set('y', pointer.y)
+                return sem
+            elif words[0] == 'done':
+                return Item(isa='done')
+            else:
+                return Item(isa='action', type=words[0], object=words[1])
+
+        language = Language(agent)
+        language.add_interpreter(interpreter)
+
+        def executor(action, context):
+            query = Query(x=action.x, y=action.y)
+            context.set(action.object, vision.find_and_encode(query))
+
+        instruction = Instruction(agent, memory, audition, language)
+        instruction.add_executor(executor)
 
         equation = ['3', 'x', '/', '12', '=', '15', '/', '4']
         for i in range(0, len(equation)):
