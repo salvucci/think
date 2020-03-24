@@ -10,7 +10,7 @@ class PVTTask(Task):
         self.display = machine.display
         self.keyboard = machine.keyboard
 
-    def run(self, time=10):
+    def run(self, time):
 
         def handle_key(key):
             self.display.clear()
@@ -31,7 +31,7 @@ class PVTAgent(Agent):
         self.vision = Vision(self, machine.display)
         self.motor = Motor(self, self.vision, machine)
 
-    def run(self, time=300):
+    def run(self, time):
         while self.time() < time:
             visual = self.vision.wait_for(seen=False)
             self.vision.start_encode(visual)
