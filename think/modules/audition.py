@@ -15,8 +15,9 @@ class Aural(Item):
 
 class Audition(Module):
 
-    def __init__(self, agent):
+    def __init__(self, agent, speakers):
         super().__init__('audition', agent)
+        self.speakers = speakers.set_audition(self)
         self.aurals = []
         self.listen_buffer = Buffer('audition.listen', self)
         self.encode_buffer = Buffer('audition.encode', self)
@@ -30,11 +31,14 @@ class Audition(Module):
 
         self.syllable_rate = .150
 
+    def add_from_speakers(self, isa, obj):
+        return self.add(Aural(isa), obj)
+
     def add(self, aural, obj):
         self.aurals.append((aural, obj))
         if self.listen_for_query is not None and self.listen_for_query.matches(aural):
             self._finish_listen(aural)
-        return self
+        return aural
 
     def add_speech(self, text):
         def thread():

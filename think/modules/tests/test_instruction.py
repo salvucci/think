@@ -9,9 +9,9 @@ class InstructionTest(unittest.TestCase):
     def test_instruction_type(self, output=False):
         agent = Agent(output=output)
         machine = Machine()
-        vision = Vision(agent, machine.display)
         memory = Memory(agent)
-        audition = Audition(agent)
+        vision = Vision(agent, machine.display)
+        audition = Audition(agent, machine.speakers)
         motor = Motor(agent, vision, machine)
 
         def interpreter(words):
@@ -81,10 +81,10 @@ class InstructionTest(unittest.TestCase):
 
     def test_instruction_read(self, output=False):
         agent = Agent(output=output)
+        memory = Memory(agent)
         machine = Machine()
         vision = Vision(agent, machine.display)
-        memory = Memory(agent)
-        audition = Audition(agent)
+        audition = Audition(agent, machine.speakers)
 
         def interpreter(words):
             if words[0] == 'read':

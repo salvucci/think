@@ -24,14 +24,33 @@ class Display:
         return self.viewing_distance * math.tan(math.radians(angle)) * self.pixels_per_inch
 
     def add(self, x, y, w, h, isa, obj):
-        self.vision.add_from_display(Area(x, y, w, h, isa=isa), obj)
-        return self
+        return self.vision.add_from_display(Area(x, y, w, h, isa=isa), obj)
 
     def object_at(self, x, y):
         return self.vision.object_at(Location(x, y))
 
     def clear(self):
         self.vision.clear()
+        return self
+
+
+class Speakers:
+
+    def __init__(self):
+        self.audition = None
+
+    def set_audition(self, audition):
+        self.audition = audition
+        return self
+
+    def add(self, isa, obj):
+        return self.audition.add_from_speakers(isa, obj)
+
+    def add_speech(self, text):
+        return self.audition.add_speech(text)
+
+    def clear(self):
+        self.audition.clear()
         return self
 
 
@@ -144,5 +163,6 @@ class Machine:
 
     def __init__(self):
         self.display = Display()
+        self.speakers = Speakers()
         self.keyboard = Keyboard()
         self.mouse = Mouse(self.display)

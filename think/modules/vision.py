@@ -38,7 +38,7 @@ class Vision(Module):
         self.visuals[visual] = obj
         if self.wait_for_query is not None and self.wait_for_query.matches(visual):
             self._finish_wait_for(visual)
-        return self
+        return visual
 
     def object_at(self, loc):
         for visual in self.visuals.keys():

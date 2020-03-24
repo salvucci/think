@@ -1,14 +1,51 @@
-from think import Agent, Memory, Aural, Audition, Vision, Item, Visual, Query, Language, Instruction, Typing, Motor
+from think import (Agent, Audition, Aural, Instruction, Item, Language,
+                   Machine, Memory, Motor, Query, Task, Vision, Visual, World)
+
+
+class TypeLetterTask(Task):
+
+    def __init__(self, machine):
+        super().__init__()
+        self.display = machine.display
+        self.speakers = machine.speakers
+        self.keyboard = machine.keyboard
+
+    def run(self, time):
+        typed = []
+
+        def handle_key(key):
+            typed.append(key)
+
+        self.keyboard.add_type_fn(handle_key)
+
+        self.display.add(50, 50, 20, 20, 'text', 'a')
+        pointer = self.display.add(50, 50, 1, 1, 'pointer', 'pointer')
+
+        speech = [
+            'to type',
+            ['read letter', (50, 50)],
+            'type letter',
+            'done'
+        ]
+
+        for line in speech:
+            self.wait(3.0)
+            if isinstance(line, str):
+                self.speakers.add('speech', line)
+            else:
+                self.speakers.add('speech', line[0])
+                loc = line[1]
+                pointer.move(loc[0], loc[1])
 
 
 class TypeLetterAgent(Agent):
 
-    def __init__(self):
-        super().__init__(output=True)
-        self.vision = Vision(self)
+    def __init__(self, machine, output=True):
+        super().__init__(output=output)
         self.memory = Memory(self)
-        self.audition = Audition(self)
-        self.typing = Typing(Motor(self))
+        self.vision = Vision(self, machine.display)
+        self.audition = Audition(self, machine.speakers)
+        self.motor = Motor(self, self.vision, machine)
 
         def interpreter(words):
             if words[0] == 'read':
@@ -31,55 +68,19 @@ class TypeLetterAgent(Agent):
                 query = Query(x=action.x, y=action.y)
                 context.set(action.object, self.vision.find_and_encode(query))
             elif action.type == 'type':
-                self.typing.type(context.get(action.object))
+                self.motor.type(context.get(action.object))
 
         self.instruction = Instruction(
             self, self.memory, self.audition, self.language)
         self.instruction.add_executor(executor)
 
-
-class TypeLetterTask:
-
-    def run(self, agent):
-        vision = agent.vision
-        audition = agent.audition
-        typing = agent.typing
-        instruction = agent.instruction
-
-        typed = []
-
-        def type_handler(key):
-            typed.append(key)
-        typing.add_type_fn(type_handler)
-
-        vision.add(Visual(50, 50, 20, 20, 'text'), 'a')
-        pointer = Visual(50, 50, 1, 1, 'pointer')
-        vision.add(pointer, 'pointer')
-
-        speech = [
-            'to type',
-            ['read letter', (50, 50)],
-            'type letter',
-            'done'
-        ]
-
-        def stimulus_thread():
-            for line in speech:
-                agent.wait(3.0)
-                if isinstance(line, str):
-                    audition.add(Aural(isa='speech'), line)
-                else:
-                    audition.add(Aural(isa='speech'), line[0])
-                    loc = line[1]
-                    pointer.move(loc[0], loc[1])
-        agent.run(stimulus_thread)
-
-        goal = instruction.listen_and_learn()
-        instruction.execute(goal)
-
-        agent.wait_for_all()
-        print(typed)
+    def run(self, time):
+        goal = self.instruction.listen_and_learn()
+        self.instruction.execute(goal)
 
 
 if __name__ == "__main__":
-    TypeLetterTask().run(TypeLetterAgent())
+    machine = Machine()
+    task = TypeLetterTask(machine)
+    agent = TypeLetterAgent(machine)
+    World(task, agent).run(30)

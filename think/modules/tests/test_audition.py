@@ -1,24 +1,23 @@
 import unittest
 
-from think import Agent, Audition, Aural, Query
+from think import Agent, Audition, Aural, Machine, Query
 
 
 class AuditionTest(unittest.TestCase):
 
     def test_audition(self, output=False):
         agent = Agent(output=output)
-        audition = Audition(agent)
+        speakers = Machine().speakers
+        audition = Audition(agent, speakers)
 
         word = 'Hello'
-        aural = Aural('word')
-        audition.add(aural, word)
-        aural2 = audition.listen(isa='word')
-        self.assertEqual(aural, aural2)
-        word2 = audition.encode(aural2)
+        speakers.add('word', word)
+        aural = audition.listen(isa='word')
+        word2 = audition.encode(aural)
         self.assertEqual(word, word2)
 
         text = 'Looks like this is working'
-        audition.add_speech(text)
+        speakers.add_speech(text)
         word = audition.listen_and_encode(isa='word')
         heard = []
         while word is not None:
