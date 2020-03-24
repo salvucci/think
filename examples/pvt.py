@@ -13,8 +13,8 @@ class PVTTask(Task):
     def run(self, time):
 
         def handle_key(key):
-            self.display.clear()
             self.record('response')
+            self.display.clear()
 
         self.keyboard.add_type_fn(handle_key)
 
