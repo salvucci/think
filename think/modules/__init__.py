@@ -5,7 +5,5 @@ from .hands import Hands
 from .instruction import Instruction
 from .language import Language
 from .memory import Chunk, Memory
-from .mousing import Mousing
 from .speech import Speech
-from .typing import Typing
 from .vision import Vision, Visual

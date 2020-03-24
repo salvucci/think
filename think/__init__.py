@@ -4,5 +4,5 @@ from .core import (Agent, Area, Buffer, Cancel, Clock, Data, Display, Item,
                    get_think_logger)
 from .modules import (Audition, Aural, Chunk, Dwell, Eyes, EyeTracker,
                       Fixation, Gaze, Hands, Instruction, Language, Memory,
-                      Mousing, Speech, Typing, Vision, Visual)
+                      Speech, Vision, Visual)
 from .skills import Arithmetic, Reading
