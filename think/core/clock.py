@@ -39,6 +39,9 @@ class Clock:
         self.event_flag = False
         self.barrier = threading.Barrier(0, lambda: self.update_all())
         self.barrier_lock = threading.Lock()
+        self.set_output(output)
+
+    def set_output(self, output):
         if isinstance(output, logging.Logger):
             self.logger = output
         elif output:
@@ -66,7 +69,7 @@ class Clock:
                 self.debug('register thread: ' + thread.name)
             n_threads = len(self.threads)
         with self.barrier_lock:
-            self.barrier._parties = n_threads # self.barrier._parties + 1
+            self.barrier._parties = n_threads  # self.barrier._parties + 1
             if _DEBUG:
                 self.debug('({} threads in barrier)'.format(
                     self.barrier.parties))
