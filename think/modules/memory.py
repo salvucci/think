@@ -23,7 +23,7 @@ class Chunk(Item):
         self.uses.append(time)
 
     def __str__(self):
-        return "<{}>{}".format(self.id, self.slots)
+        return '<{}>{}'.format(self.id, self.slots)
 
 
 class Memory(Module):
@@ -33,10 +33,10 @@ class Memory(Module):
     ADVANCED_DECAY = 3
 
     def __init__(self, agent, decay=None):
-        super().__init__("memory", agent)
+        super().__init__('memory', agent)
         self.decay = decay or Memory.NO_DECAY
         self.chunks = {}
-        self.buffer = Buffer("memory", self)
+        self.buffer = Buffer('memory', self)
         self.decay_rate = 0.5
         self.retrieval_threshold = 0.0
         self.latency_factor = 1.0
@@ -46,7 +46,7 @@ class Memory(Module):
     def _uniquify(self, id):
         if id in self.chunks:
             self._unique += 1
-            return self._uniquify("{}~{}".format(id, self._unique))
+            return self._uniquify('{}~{}'.format(id, self._unique))
         else:
             return id
 
@@ -75,14 +75,14 @@ class Memory(Module):
     def store(self, chunk=None, **kwargs):
         if not chunk:
             chunk = Chunk(**kwargs)
-        self.think("store {}".format(chunk))
+        self.think('store {}'.format(chunk))
         match = self._get_match(chunk)
         if match is not None:
-            self.log("stored and merged into {}".format(match))
+            self.log('stored and merged into {}'.format(match))
             self._add_use(match)
             chunk = match
         else:
-            self.log("stored {}".format(chunk))
+            self.log('stored {}'.format(chunk))
             chunk.id = self._uniquify(chunk.id)
             chunk.creation_time = self.time()
             self._add_use(chunk)
@@ -145,15 +145,15 @@ class Memory(Module):
         if not query or not isinstance(query, Query):
             query = Query(**kwargs)
         self.buffer.acquire()
-        self.think("recall {}".format(query))
-        self.log("recalling {}".format(query))
+        self.think('recall {}'.format(query))
+        self.log('recalling {}'.format(query))
         chunk = self._get_chunk(query)
         self._start_recall(chunk)
 
     def start_recall_by_id(self, id):
         self.buffer.acquire()
-        self.think("recall <{}>".format(id))
-        self.log("recalling <{}>".format(id))
+        self.think('recall <{}>'.format(id))
+        self.log('recalling <{}>'.format(id))
         chunk = self.get(id)
         act = self._compute_transient_act(chunk)
         self._start_recall(chunk if act >= self.retrieval_threshold else None)
@@ -162,12 +162,12 @@ class Memory(Module):
         if chunk is not None:
             duration = self.latency_factor * \
                 math.exp(-chunk.transient_activation)
-            self.buffer.set(chunk, duration, "recalled {}".format(
+            self.buffer.set(chunk, duration, 'recalled {}'.format(
                 chunk), lambda: self._add_use(chunk))
         else:
             duration = self.latency_factor * \
                 math.exp(-self.retrieval_threshold)
-            self.buffer.clear(duration, "recall failed")
+            self.buffer.clear(duration, 'recall failed')
 
     def get_recalled(self):
         return self.buffer.get_and_release()

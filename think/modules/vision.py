@@ -15,14 +15,14 @@ class Visual(Area):
 class Vision(Module):
 
     def __init__(self, agent, display, eyes=None):
-        super().__init__("vision", agent)
+        super().__init__('vision', agent)
         self.display = display.set_vision(self)
         self.eyes = eyes
         if eyes is not None:
             eyes.set_vision(self)
         self.visuals = {}
-        self.find_buffer = Buffer("vision.find", self)
-        self.encode_buffer = Buffer("vision.encode", self)
+        self.find_buffer = Buffer('vision.find', self)
+        self.encode_buffer = Buffer('vision.encode', self)
         self.encode_loc = Location(0, 0)
         self.wait_for_query = None
         self.last_encode_cancel = None
@@ -78,16 +78,16 @@ class Vision(Module):
         if not query:
             query = Query(**kwargs)
         self.find_buffer.acquire()
-        self.think("find {}".format(query))
+        self.think('find {}'.format(query))
         match = self._try_find(query)
         duration = self.find_time
         if match is not None:
             def fn():
                 for fn in self.attend_fns:
                     fn(match)
-            self.find_buffer.set(match, duration, "found {}".format(match), fn)
+            self.find_buffer.set(match, duration, 'found {}'.format(match), fn)
         else:
-            self.find_buffer.clear(duration, "find failed")
+            self.find_buffer.clear(duration, 'find failed')
 
     def get_found(self):
         return self.find_buffer.get_and_release()
@@ -102,7 +102,7 @@ class Vision(Module):
         if not query:
             query = Query(**kwargs)
         self.find_buffer.acquire()
-        self.think("wait for {}".format(query))
+        self.think('wait for {}'.format(query))
         visual = self._try_find(query.eq('seen', False))
         if visual is not None:
             self._finish_wait_for(visual)
@@ -116,7 +116,7 @@ class Vision(Module):
         def fn():
             for fn in self.attend_fns:
                 fn(visual)
-        self.find_buffer.set(visual, duration, "found {}".format(visual), fn)
+        self.find_buffer.set(visual, duration, 'found {}'.format(visual), fn)
 
     def wait_for(self, query=None, **kwargs):
         if not query:
@@ -129,7 +129,7 @@ class Vision(Module):
             self.last_encode_cancel.try_cancel()
 
         def fn():
-            self.log("encoded {}".format(obj))
+            self.log('encoded {}'.format(obj))
             self.encode_buffer.set(obj)
             visual.set('seen', True)
             self.encode_loc = visual
@@ -140,7 +140,7 @@ class Vision(Module):
     def start_encode(self, visual, suppress_think=False):
         self.encode_buffer.acquire()
         if not suppress_think:
-            self.think("encode {}".format(visual))
+            self.think('encode {}'.format(visual))
         obj = self.visuals[visual]
         duration = self.eyes.compute_enc_time(
             visual) if self.eyes is not None else self.default_enc_time
@@ -149,7 +149,7 @@ class Vision(Module):
             if self.eyes is not None:
                 self.eyes.prepare(visual, obj, self.time(), duration)
         else:
-            self.encode_buffer.clear(duration, "encode failed")
+            self.encode_buffer.clear(duration, 'encode failed')
 
     def get_encoded(self):
         return self.encode_buffer.get_and_release()

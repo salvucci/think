@@ -8,8 +8,8 @@ from .utilities import count_syllables, text_to_words
 class Speech(Module):
 
     def __init__(self, agent):
-        super().__init__("speech", agent)
-        self.worker = Worker("speech", self)
+        super().__init__('speech', agent)
+        self.worker = Worker('speech', self)
         self.say_fns = []
         self.base_time = .200
         self.syllable_rate = .150
@@ -34,11 +34,11 @@ class Speech(Module):
 
     def say(self, text):
         for word in text_to_words(text):
-            self._say_word(word, "say", "saying", "said")
+            self._say_word(word, 'say', 'saying', 'said')
         return self
 
     def subvocalize(self, text):
         for word in text_to_words(text):
-            self._say_word(word, "subvocalize",
-                           "subvocalizing", "subvocalized")
+            self._say_word(word, 'subvocalize',
+                           'subvocalizing', 'subvocalized')
         return self

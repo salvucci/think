@@ -79,7 +79,7 @@ class Hands(Module):
                     self.wait(self._key_time)
                     if key == 'shift':
                         shifted = not shifted
-                        self.log("{} '{}'".format(
+                        self.log('{} "{}"'.format(
                             'pressed' if shifted else 'released', key))
                     else:
                         self.log('typed "{}"'.format(key))
@@ -107,8 +107,8 @@ class Hands(Module):
 
     def start_move_to(self, visual):
         self.worker.acquire()
-        self.think("move mouse {}".format(visual))
-        self.log("moving mouse {}".format(visual))
+        self.think('move mouse {}'.format(visual))
+        self.log('moving mouse {}'.format(visual))
         self.vision.start_encode(visual)
         duration = self.calc_move_time(self.mouse_loc, visual)
 
@@ -116,7 +116,7 @@ class Hands(Module):
             self.mouse_loc = visual
             self.mouse.move(visual.x, visual.y)
 
-        self.worker.run(duration, "moved mouse {}".format(visual), fn)
+        self.worker.run(duration, 'moved mouse {}'.format(visual), fn)
 
     def move_to(self, visual):
         self.start_move_to(visual)
@@ -128,8 +128,8 @@ class Hands(Module):
 
     def start_click(self):
         self.worker.acquire()
-        self.think("click mouse")
-        self.log("clicking mouse")
+        self.think('click mouse')
+        self.log('clicking mouse')
         duration = self.calc_click_time()
 
         def fn():
@@ -138,7 +138,7 @@ class Hands(Module):
                     if visual.contains(self.mouse_loc):
                         self.mouse.click()
 
-        self.worker.run(duration, "click mouse {}".format(self.mouse_loc), fn)
+        self.worker.run(duration, 'click mouse {}'.format(self.mouse_loc), fn)
 
     def click(self):
         self.start_click()

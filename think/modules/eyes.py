@@ -7,7 +7,7 @@ from think import Location, Module
 class Eyes(Module):
 
     def __init__(self, agent):
-        super().__init__("eyes", agent)
+        super().__init__('eyes', agent)
         self.vision = None
         self.loc = Location(0, 0)
         self.last_prep_cancel = None
@@ -49,7 +49,7 @@ class Eyes(Module):
                 self._compute_eccentricity(visual))
         new_loc = Location(visual.x + random.gauss(0, sd),
                            visual.y + random.gauss(0, sd))
-        self.log("prepare {}".format(new_loc))
+        self.log('prepare {}'.format(new_loc))
         duration = self._rand_time(self.prep_time)
 
         def fn():
@@ -58,12 +58,12 @@ class Eyes(Module):
         self.last_prep_cancel = self.run_thread_can_cancel(fn, duration)
 
     def move(self, visual, obj, new_loc, enc_start, enc_dur):
-        self.log("move {}".format(new_loc))
+        self.log('move {}'.format(new_loc))
         duration = self._rand_time(
             self.exec_time_base) + self.exec_time_inc * self._compute_eccentricity(visual)
 
         def fn():
-            self.log("moved {}".format(new_loc))
+            self.log('moved {}'.format(new_loc))
             self.loc = new_loc
             if enc_start + enc_dur > self.time():
                 completed = (self.time() - enc_start) / enc_dur

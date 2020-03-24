@@ -42,7 +42,7 @@ class Item:
         return True
 
     def __str__(self):
-        return "{}".format(self.slots)
+        return '{}'.format(self.slots)
 
 
 class SlotQuery:
@@ -70,7 +70,7 @@ class SlotQuery:
             return False
 
     def __str__(self):
-        return "{}{}{}".format(self.slot, self.op, self.val)
+        return '{}{}{}'.format(self.slot, self.op, self.val)
 
 
 class Query:
@@ -121,7 +121,7 @@ class Query:
         return True
 
     def __str__(self):
-        return "[" + ", ".join(map(str, self.slotqs)) + "]"
+        return '[' + ', '.join(map(str, self.slotqs)) + ']'
 
 
 class Location(Item):

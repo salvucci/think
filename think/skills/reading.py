@@ -20,9 +20,9 @@ class Reading:
 #         result_ff_dur = self.ff_dur.analyze(ReadingTest.HUMAN_FF_DUR)
 #         result_skip_prob = self.skip_prob.analyze(ReadingTest.HUMAN_SKIP_PROB)
 #         if output:
-#             result_gaze_dur.output("Gaze Durations", 0)
-#             result_ff_dur.output("First Fixation Durations", 0)
-#             result_skip_prob.output("Skip Probabilities", 2)
+#             result_gaze_dur.output('Gaze Durations', 0)
+#             result_ff_dur.output('First Fixation Durations', 0)
+#             result_skip_prob.output('Skip Probabilities', 2)
 #         self.assertGreaterEqual(result_gaze_dur.r, .80)
 #         self.assertGreaterEqual(result_ff_dur.r, .80)
 #         self.assertGreaterEqual(result_skip_prob.r, .80)

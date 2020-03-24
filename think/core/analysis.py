@@ -124,12 +124,12 @@ class Values:
             return None
 
     def tab_string(self, places=3):
-        vals = map(lambda d: ("{:." + str(places) + "f}").format(d), self.v)
-        return "\t".join(vals)
+        vals = map(lambda d: ('{:.' + str(places) + 'f}').format(d), self.v)
+        return '\t'.join(vals)
 
     def __str__(self, places=3):
-        vals = map(lambda d: ("{:." + str(places) + "f}").format(d), self.v)
-        return "[" + ", ".join(vals) + "]"
+        vals = map(lambda d: ('{:.' + str(places) + 'f}').format(d), self.v)
+        return '[' + ', '.join(vals) + ']'
 
 
 class Data:
@@ -165,9 +165,9 @@ class Result:
     def output(self, title, places=2, labels=None):
         if not labels:
             labels = range(1, self.model.size() + 1)
-        print("\n" + title + "\n\t" + "\t".join(str(x) for x in labels))
-        print("Human\t" + self.human.tab_string(places))
-        print("Model\t" + self.model.tab_string(places))
-        print("** R = {:.2f}".format(self.r))
-        print("** RMSE = {:.2f}".format(self.rmse))
-        print("** NRMSE = {:.2f}".format(self.nrmse))
+        print('\n' + title + '\n\t' + '\t'.join(str(x) for x in labels))
+        print('Human\t' + self.human.tab_string(places))
+        print('Model\t' + self.model.tab_string(places))
+        print('** R = {:.2f}'.format(self.r))
+        print('** RMSE = {:.2f}'.format(self.rmse))
+        print('** NRMSE = {:.2f}'.format(self.nrmse))

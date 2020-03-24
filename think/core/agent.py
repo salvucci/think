@@ -8,22 +8,22 @@ _DEBUG = False
 
 class Agent(Process):
 
-    def __init__(self, name="agent", clock=None, output=False):
+    def __init__(self, name='agent', clock=None, output=False):
         super().__init__(name, clock or Clock(output=output))
         self.think_time = .050
         self.clock.register(threading.current_thread())
-        self.think_worker = Worker("think", self)
+        self.think_worker = Worker('think', self)
         self.modules = {}
 
     def indexed_name(self):
         name = self.name
         if self.clock.n_children() > 1:
-            name += "[{}]".format(self.clock.thread_index())
+            name += '[{}]'.format(self.clock.thread_index())
         return name
-    
+
     def add_module(self, module):
         self.modules[module.name] = module
-    
+
     def module(self, name):
         return self.modules[name]
 
@@ -48,10 +48,10 @@ class Module(Process):
         self.agent.think(message)
 
     def log(self, message):
-        super().log(message, self.agent.name + "." + self.name)
+        super().log(message, self.agent.name + '.' + self.name)
 
     def debug(self, message):
-        super().debug(message, self.agent.name + "." + self.name)
+        super().debug(message, self.agent.name + '.' + self.name)
 
 
 class Worker:
@@ -66,11 +66,11 @@ class Worker:
         while not locked:
             if _DEBUG:
                 self.process.debug(
-                    "worker '{}' acquire failed".format(self.name))
+                    'worker "{}" acquire failed'.format(self.name))
             self.process.wait_for_next_event()
             locked = self.lock.acquire(False)
         if _DEBUG:
-            self.process.debug("worker '{}' acquired".format(self.name))
+            self.process.debug('worker "{}" acquired'.format(self.name))
 
     def run(self, delay=0.0, message=None, action=None, release=True):
         def _actions():
@@ -94,21 +94,21 @@ class Worker:
         self.process.report_event()
         self.process.wait_for_next_event()
         if _DEBUG:
-            self.process.debug("worker '{}' released".format(self.name))
+            self.process.debug('worker "{}" released'.format(self.name))
 
 
 class Buffer(Worker):
 
     def __init__(self, name, module):
         super().__init__(name, module)
-        self.content_worker = Worker(name + "_content", module)
+        self.content_worker = Worker(name + '_content', module)
         self.contents = None
 
     def acquire(self):
         super().acquire()
         self.content_worker.acquire()
         if _DEBUG:
-            self.process.debug("buffer '{}' acquired".format(self.name))
+            self.process.debug('buffer "{}" acquired'.format(self.name))
 
     def set(self, contents, delay=None, message=None, action=None):
         if delay is None:
@@ -128,7 +128,7 @@ class Buffer(Worker):
     def wait_for_content(self):
         if _DEBUG:
             self.process.debug(
-                "buffer '{}' waiting for content".format(self.name))
+                'buffer "{}" waiting for content'.format(self.name))
         self.content_worker.acquire()
         self.content_worker.release()
 
@@ -136,6 +136,6 @@ class Buffer(Worker):
         self.wait_for_content()
         result = self.contents
         if _DEBUG:
-            self.process.debug("buffer '{}' released".format(self.name))
+            self.process.debug('buffer "{}" released'.format(self.name))
         super().release()
         return result

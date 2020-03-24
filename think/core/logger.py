@@ -7,12 +7,12 @@ import logging
 #logger that prints to the specified file
 
 
-def get_think_logger(name="think",
-                     logfilename="outfile.txt",
+def get_think_logger(name='think',
+                     logfilename='outfile.txt',
                      uselogfile=False,
-                     formats="%(time)12.3f      %(source)-18s      %(message)s",
+                     formats='%(time)12.3f      %(source)-18s      %(message)s',
                      level=logging.DEBUG):
-        """Returns a new logger."""
+        '''Returns a new logger.'''
         if uselogfile:
             logging.basicConfig(filename=logfilename,
                                 format=formats, level=level)
