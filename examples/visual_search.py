@@ -57,6 +57,6 @@ class VisualSearchAgent(Agent):
 
 if __name__ == "__main__":
     machine = Machine()
-    agent = VisualSearchAgent(machine)
     task = VisualSearchTask(machine)
+    agent = VisualSearchAgent(machine)
     World(task, agent).run(30)

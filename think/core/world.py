@@ -26,9 +26,11 @@ class World:
                 p.clock = clock
         clock.register(threading.current_thread())
 
-    def run(self, time=300):
+    def run(self, time=300, output=None):
         if len(self.processes) > 0:
             p0 = self.processes[0]
+            if output is not None:
+                p0.clock.set_output(output)
             for p in self.processes[1:]:
                 p0.run_thread(lambda: p.run(time=time))
             p0.run(time=time)

@@ -42,6 +42,6 @@ class ClickAMoleAgent(Agent):
 
 if __name__ == "__main__":
     machine = Machine()
-    agent = ClickAMoleAgent(machine)
     task = ClickAMoleTask(machine)
+    agent = ClickAMoleAgent(machine)
     World(task, agent).run(30)
