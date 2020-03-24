@@ -138,7 +138,7 @@ class Motor(Module):
                     if visual.contains(self.mouse_loc):
                         self.mouse.click()
 
-        self.worker.run(duration, 'click mouse {}'.format(self.mouse_loc), fn)
+        self.worker.run(duration, 'clicked mouse {}'.format(self.mouse_loc), fn)
 
     def click(self):
         self.start_click()
