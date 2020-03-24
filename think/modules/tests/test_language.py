@@ -14,6 +14,7 @@ class LanguageTest(unittest.TestCase):
                 return Item(isa='action', verb=words[0], object=words[1])
             else:
                 return Item(isa=words[0])
+
         language.add_interpreter(interpreter)
 
         goal = language.interpret('to read')

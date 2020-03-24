@@ -18,7 +18,7 @@ class Language(Module):
             return Item(isa='goal', name=words[1])
         else:
             for interpreter in self.interpreters:
-                sem = interpreter(text)
+                sem = interpreter(words)
                 if sem:
                     self.log('interpreted as {}'.format(sem))
                     return sem
