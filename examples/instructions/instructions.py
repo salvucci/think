@@ -1,4 +1,4 @@
-from think import Agent, Memory, Aural, Audition, Vision, Item, Visual, Query, Language, Instruction, Typing, Hands
+from think import Agent, Memory, Aural, Audition, Vision, Item, Visual, Query, Language, Instruction, Typing, Motor
 
 
 class TypeLetterAgent(Agent):
@@ -8,7 +8,7 @@ class TypeLetterAgent(Agent):
         self.vision = Vision(self)
         self.memory = Memory(self)
         self.audition = Audition(self)
-        self.typing = Typing(Hands(self))
+        self.typing = Typing(Motor(self))
 
         def interpreter(words):
             if words[0] == 'read':

@@ -1,5 +1,5 @@
 import random
-from think import Agent, Vision, Visual, Hands, Mouse
+from think import Agent, Vision, Visual, Motor, Mouse
 
 
 class ClickAMole:
@@ -36,7 +36,7 @@ class ClickAMole:
 if __name__ == "__main__":
     agent = Agent(output=True)
     vision = Vision(agent)
-    mouse = Mouse(Hands(agent, Hands.ON_MOUSE), vision)
+    mouse = Mouse(Motor(agent, Motor.ON_MOUSE), vision)
     game = ClickAMole(agent, vision, mouse)
     game.play(20.0)
     agent.wait_for_all()

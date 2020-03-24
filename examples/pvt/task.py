@@ -1,6 +1,6 @@
 import random
 
-from think import (Agent, Audition, Aural, Hands, Instruction, Item, Language,
+from think import (Agent, Audition, Aural, Motor, Instruction, Item, Language,
                    Memory, Query, Task, Typing, Vision, Visual, World)
 
 

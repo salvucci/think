@@ -3,6 +3,6 @@ from .core import (Agent, Area, Buffer, Cancel, Clock, Data, Display, Item,
                    Result, SlotQuery, Task, Values, Worker, World,
                    get_think_logger)
 from .modules import (Audition, Aural, Chunk, Dwell, Eyes, EyeTracker,
-                      Fixation, Gaze, Hands, Instruction, Language, Memory,
+                      Fixation, Gaze, Motor, Instruction, Language, Memory,
                       Speech, Vision, Visual)
 from .skills import Arithmetic, Reading

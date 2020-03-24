@@ -4,20 +4,20 @@ import re
 from think import Location, Module, Worker
 
 
-class Hands(Module):
+class Motor(Module):
     ON_KEYBOARD = 1
     ON_MOUSE = 2
     DEFAULT_TYPING_WPM = 40
 
     def __init__(self, agent, vision, machine, pos=None):
-        super().__init__('hands', agent)
+        super().__init__('motor', agent)
         self.vision = vision
         self.display = machine.display
         self.keyboard = machine.keyboard
         self.mouse = machine.mouse
-        self.pos = pos or Hands.ON_KEYBOARD
-        self.worker = Worker('hands', self)
-        self.wpm(Hands.DEFAULT_TYPING_WPM)
+        self.pos = pos or Motor.ON_KEYBOARD
+        self.worker = Worker('motor', self)
+        self.wpm(Motor.DEFAULT_TYPING_WPM)
         self.mouse_loc = Location(0, 0)
         self.mouse_init_time = .050
         self.mouse_burst_time = .050
@@ -25,10 +25,10 @@ class Hands(Module):
         self.mouse_min_fitts_time = .100
 
     def on_mouse(self):
-        return self.pos == Hands.ON_MOUSE
+        return self.pos == Motor.ON_MOUSE
 
     def on_keyboard(self):
-        return self.pos == Hands.ON_KEYBOARD
+        return self.pos == Motor.ON_KEYBOARD
 
     def move(self, pos):
         self.pos = pos

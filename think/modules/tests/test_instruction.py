@@ -1,7 +1,7 @@
 import unittest
 
-from think import (Agent, Audition, Aural, Hands, Instruction, Item, Language,
-                   Machine, Memory, Query, Vision, Visual)
+from think import (Agent, Audition, Aural, Instruction, Item, Language,
+                   Machine, Memory, Motor, Query, Vision, Visual)
 
 
 class InstructionTest(unittest.TestCase):
@@ -12,7 +12,7 @@ class InstructionTest(unittest.TestCase):
         vision = Vision(agent, machine.display)
         memory = Memory(agent)
         audition = Audition(agent)
-        hands = Hands(agent, vision, machine)
+        motor = Motor(agent, vision, machine)
 
         def interpreter(words):
             if words[0] == 'read':
@@ -35,7 +35,7 @@ class InstructionTest(unittest.TestCase):
                 query = Query(x=action.x, y=action.y)
                 context.set(action.object, vision.find_and_encode(query))
             elif action.type == 'type':
-                hands.type(context.get(action.object))
+                motor.type(context.get(action.object))
 
         instruction = Instruction(agent, memory, audition, language)
         instruction.add_executor(executor)

@@ -1,4 +1,4 @@
-from think import Agent, Audition, Hands, Typing, Vision, Visual
+from think import Agent, Audition, Motor, Typing, Vision, Visual
 
 
 class PVTAgent(Agent):
@@ -8,7 +8,7 @@ class PVTAgent(Agent):
         super().__init__(output=True)
         self.vision = Vision(self)
         self.audition = Audition(self)
-        self.typing = Typing(Hands(self))
+        self.typing = Typing(Motor(self))
 
     def run(self, time=300):
         while self.time() < time:

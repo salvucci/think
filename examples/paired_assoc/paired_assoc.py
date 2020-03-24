@@ -1,7 +1,7 @@
 import random
 import unittest
 
-from think import Agent, Data, Hands, Memory, Typing, Vision, Visual
+from think import Agent, Data, Motor, Memory, Typing, Vision, Visual
 
 
 class PairedAssociates():
@@ -39,7 +39,7 @@ class PairedAssociates():
         memory.retrieval_threshold = -1.8
         memory.latency_factor = .450
         vision = Vision(agent)
-        typing = Typing(Hands(agent))
+        typing = Typing(Motor(agent))
         self.trial_start = 0
         self.block_index = 0
 

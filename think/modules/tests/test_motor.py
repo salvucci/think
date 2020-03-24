@@ -1,7 +1,7 @@
 import random
 import unittest
 
-from think import Agent, Hands, Machine, Query, Vision, Visual
+from think import Agent, Machine, Motor, Query, Vision, Visual
 
 
 class TypingTest(unittest.TestCase):
@@ -10,8 +10,8 @@ class TypingTest(unittest.TestCase):
         agent = Agent(output=output)
         machine = Machine()
         vision = Vision(agent, machine.display)
-        hands = Hands(agent, vision, machine)
-        hands.type('Hello there. What\'s up?')
+        motor = Motor(agent, vision, machine)
+        motor.type('Hello there. What\'s up?')
         agent.wait_for_all()
         self.assertAlmostEqual(6.597, agent.time(), 1)
 
@@ -19,8 +19,8 @@ class TypingTest(unittest.TestCase):
         agent = Agent(output=output)
         machine = Machine()
         vision = Vision(agent, machine.display)
-        hands = Hands(agent, vision, machine)
-        self.assertAlmostEqual(6.597, hands.typing_time(
+        motor = Motor(agent, vision, machine)
+        self.assertAlmostEqual(6.597, motor.typing_time(
             'Hello there. What\'s up?'), 1)
 
 
@@ -30,7 +30,7 @@ class MouseTest(unittest.TestCase):
         agent = Agent(output=output)
         machine = Machine()
         vision = Vision(agent, machine.display)
-        hands = Hands(agent, vision, machine)
+        motor = Motor(agent, vision, machine)
         self.button = None
         end = 20.0
 
@@ -52,6 +52,6 @@ class MouseTest(unittest.TestCase):
         machine.mouse.add_click_fn(fn)
         while agent.time() < end:
             visual = vision.wait_for(isa='button')
-            hands.point_and_click(visual)
+            motor.point_and_click(visual)
         agent.wait_for_all()
         self.assertGreaterEqual(agent.time(), end)
