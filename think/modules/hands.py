@@ -7,7 +7,7 @@ class Hands(Module):
 
     def __init__(self, agent, pos=None):
         super().__init__("hands", agent)
-        self.pos = pos if pos is not None else Hands.ON_KEYBOARD
+        self.pos = pos or Hands.ON_KEYBOARD
         self.worker = Worker("hands", self)
 
     def on_mouse(self):

@@ -1,5 +1,7 @@
 import unittest
-from think import Agent, Memory, Aural, Audition, Vision, Item, Visual, Query, Language, Instruction, Typing, Hands
+
+from think import (Agent, Audition, Aural, Hands, Instruction, Item, Language,
+                   Memory, Query, Typing, Vision, Visual)
 
 
 class InstructionTest(unittest.TestCase):
@@ -64,7 +66,7 @@ class InstructionTest(unittest.TestCase):
                     audition.add(Aural(isa='speech'), line[0])
                     loc = line[1]
                     pointer.move(loc[0], loc[1])
-        agent.run(thread)
+        agent.run_thread(thread)
 
         goal = instruction.listen_and_learn()
         self.assertEqual('type', goal)
@@ -127,7 +129,7 @@ class InstructionTest(unittest.TestCase):
                     audition.add(Aural(isa='speech'), line[0])
                     loc = line[1]
                     pointer.move(loc[0], loc[1])
-        agent.run(thread)
+        agent.run_thread(thread)
 
         goal = instruction.listen_and_learn()
         self.assertEqual('solve', goal)

@@ -1,6 +1,7 @@
 import random
 import unittest
-from think import Agent, Query, Chunk, Memory
+
+from think import Agent, Chunk, Memory, Query
 
 
 class ChunkTest(unittest.TestCase):

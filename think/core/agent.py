@@ -1,7 +1,7 @@
 import threading
+
 from .clock import Clock
 from .process import Process
-
 
 _DEBUG = False
 
@@ -80,7 +80,7 @@ class Worker:
                 action()
             if release:
                 self.release()
-        self.process.run(_actions, delay)
+        self.process.run_thread(_actions, delay)
 
     def wait_until_free(self):
         locked = self.lock.acquire(False)

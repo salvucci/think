@@ -1,7 +1,7 @@
 import math
 import random
-from think import Module, Buffer, Location, Area, Query
-from .machine import Display
+
+from think import Area, Buffer, Display, Location, Module, Query
 
 
 class Visual(Area):
@@ -14,9 +14,9 @@ class Visual(Area):
 
 class Vision(Module):
 
-    def __init__(self, agent, eyes=None, display=Display()):
+    def __init__(self, agent, display, eyes=None):
         super().__init__("vision", agent)
-        self.display = display
+        self.display = display.set_vision(self)
         self.eyes = eyes
         if eyes is not None:
             eyes.set_vision(self)
@@ -31,11 +31,20 @@ class Vision(Module):
         self.find_time = .000
         self.default_enc_time = .135
 
+    def add_from_display(self, area, obj):
+        return self.add(Visual(area.x, area.y, area.w, area.h, area.isa), obj)
+
     def add(self, visual, obj):
         self.visuals[visual] = obj
         if self.wait_for_query is not None and self.wait_for_query.matches(visual):
             self._finish_wait_for(visual)
         return self
+
+    def object_at(self, loc):
+        for visual in self.visuals.keys():
+            if visual.contains(loc):
+                return self.visuals[visual]
+        return None
 
     def remove(self, visual):
         del self.visuals[visual]
@@ -126,7 +135,7 @@ class Vision(Module):
             self.encode_loc = visual
             for fn in self.encode_fns:
                 fn(visual, object)
-        self.last_encode_cancel = self.run_can_cancel(fn, duration)
+        self.last_encode_cancel = self.run_thread_can_cancel(fn, duration)
 
     def start_encode(self, visual, suppress_think=False):
         self.encode_buffer.acquire()

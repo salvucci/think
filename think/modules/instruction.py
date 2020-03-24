@@ -1,5 +1,7 @@
 from inspect import signature
-from think import Module, Item, Query
+
+from think import Item, Module, Query
+
 from .memory import Chunk
 
 

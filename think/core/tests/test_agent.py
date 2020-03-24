@@ -1,4 +1,5 @@
 import unittest
+
 from think import Agent, Memory, Speech
 
 
@@ -8,7 +9,7 @@ class AgentTest(unittest.TestCase):
         agent = Agent(output=output)
         agent.wait(10.0)
         self.assertAlmostEqual(10.0, agent.time(), 2)
-        agent.run(lambda: agent.wait(5.0))
+        agent.run_thread(lambda: agent.wait(5.0))
         agent.wait(2.0)
         self.assertAlmostEqual(12.0, agent.time(), 2)
         agent.wait_for_all()
@@ -26,13 +27,13 @@ class AgentTest(unittest.TestCase):
             for _ in range(2):
                 number = memory.recall(isa='number')
                 speech.say(number.value)
-        agent.run(thread2)
+        agent.run_thread(thread2)
         agent.wait(.100)
 
         def thread3():
             for _ in range(2):
                 memory.recall('digit')
-        agent.run(thread3)
+        agent.run_thread(thread3)
         for _ in range(2):
             memory.recall('item')
         agent.wait_for_all()

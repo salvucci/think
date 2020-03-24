@@ -1,5 +1,6 @@
 import unittest
-from think import Agent, Language, Item
+
+from think import Agent, Item, Language
 
 
 class LanguageTest(unittest.TestCase):

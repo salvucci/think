@@ -1,6 +1,8 @@
 import re
+
 from think import Module, Worker
-from .utilities import text_to_words, count_syllables
+
+from .utilities import count_syllables, text_to_words
 
 
 class Speech(Module):

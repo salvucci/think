@@ -1,5 +1,6 @@
 import unittest
-from think import Agent, Eyes, Vision, Visual, EyeTracker, Query, Data
+
+from think import Agent, Data, Eyes, EyeTracker, Query, Vision, Visual
 
 
 class ReadingTest(unittest.TestCase):

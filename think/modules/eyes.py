@@ -1,6 +1,7 @@
 import math
 import random
-from think import Module, Location
+
+from think import Location, Module
 
 
 class Eyes(Module):
@@ -54,7 +55,7 @@ class Eyes(Module):
         def fn():
             self.move(visual, obj, new_loc, enc_start, enc_dur)
 
-        self.last_prep_cancel = self.run_can_cancel(fn, duration)
+        self.last_prep_cancel = self.run_thread_can_cancel(fn, duration)
 
     def move(self, visual, obj, new_loc, enc_start, enc_dur):
         self.log("move {}".format(new_loc))
@@ -74,4 +75,4 @@ class Eyes(Module):
             for fn in self.fixate_fns:
                 fn(self.loc)
 
-        self.run(fn, duration)
+        self.run_thread(fn, duration)

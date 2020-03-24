@@ -1,6 +1,7 @@
 import random
 import unittest
-from think import Agent, Hands, Typing, Mouse, Vision, Visual, Query
+
+from think import Agent, Hands, Mouse, Query, Typing, Vision, Visual
 
 
 class TypingTest(unittest.TestCase):
@@ -37,7 +38,7 @@ class MouseTest(unittest.TestCase):
                     self.button = Visual(random.randint(
                         0, 500), random.randint(0, 500), 30, 30, 'button')
                     vision.add(self.button, "X")
-                agent.run(fn)
+                agent.run_thread(fn)
         update()
 
         def fn(visual):

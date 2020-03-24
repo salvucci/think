@@ -1,4 +1,5 @@
-from think import Agent, Eyes, Vision, Visual, EyeTracker, Query, Data
+from think import Agent, Data, Eyes, EyeTracker, Query, Vision, Visual
+from think.skills.test.test_reading import ReadingTest
 
 
 class Reading:

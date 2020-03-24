@@ -1,5 +1,6 @@
 import unittest
-from think import Agent, Memory, Speech, Arithmetic
+
+from think import Agent, Arithmetic, Memory, Speech
 
 
 class ArithmeticTest(unittest.TestCase):

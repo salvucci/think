@@ -1,5 +1,6 @@
 import unittest
-from think import Item, Query, Location, Area
+
+from think import Area, Item, Location, Query
 
 
 class ItemTest(unittest.TestCase):

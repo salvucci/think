@@ -1,4 +1,5 @@
 import threading
+
 from .clock import Clock
 
 
@@ -32,24 +33,29 @@ class Process:
 
     def __init__(self, name, clock=None):
         self.name = name
-        self.clock = clock if clock is not None else Clock()
+        self.clock = clock
 
     def time(self):
         return self.clock.time()
+    
+    def run(self):
+        raise Exception('Run not implemented')
 
-    def run(self, action, delay=0.0):
-        def _actions():
+    def run_thread(self, action, delay=0.0):
+
+        def _run():
             if delay > 0:
                 self.wait(delay)
-            if action is not None:
+            if action:
                 action()
             self.clock.deregister()
-        thread = threading.Thread(target=_actions)
+        
+        thread = threading.Thread(target=_run, daemon=True)
         self.clock.register(thread)
         thread.start()
         return thread
 
-    def run_can_cancel(self, action, delay=0.0):
+    def run_thread_can_cancel(self, action, delay=0.0):
         cancel = Cancel()
 
         def _actions():
@@ -58,7 +64,7 @@ class Process:
             if cancel.try_run() and action is not None:
                 action()
             self.clock.deregister()
-        thread = threading.Thread(target=_actions)
+        thread = threading.Thread(target=_actions, daemon=True)
         self.clock.register(thread)
         thread.start()
         return cancel

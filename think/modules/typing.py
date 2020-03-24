@@ -1,22 +1,19 @@
 import re
-from think import Module
-from .machine import Keyboard
+
+from think import Keyboard, Module
+
+from .hands import Hands
 
 
 class Typing(Module):
     DEFAULT_WPM = 40
 
-    def __init__(self, hands, keyboard=Keyboard()):
-        super().__init__("typing", hands.agent)
-        self.hands = hands
+    def __init__(self, agent, keyboard, hands=None):
+        super().__init__("typing", agent)
         self.keyboard = keyboard
+        self.hands = hands or Hands(agent)
         self.worker = hands.worker
-        self.type_fns = []
         self.wpm(Typing.DEFAULT_WPM)
-
-    def add_type_fn(self, fn):
-        self.type_fns.append(fn)
-        return self
 
     def key_time(self, wpm):
         return .0000083 * (wpm * wpm) - .003051 * wpm + .31727
@@ -67,6 +64,5 @@ class Typing(Module):
                             "pressed" if shifted else "released", key))
                     else:
                         self.log("typed '{}'".format(key))
-                    for fn in self.type_fns:
-                        fn(key)
+                    self.keyboard.type(key)
             self.worker.run(action=fn)

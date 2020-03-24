@@ -1,6 +1,7 @@
 import math
 import random
-from think import Module, Buffer, Item, Query
+
+from think import Buffer, Item, Module, Query
 
 
 class Chunk(Item):

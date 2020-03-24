@@ -1,7 +1,7 @@
 import logging
 import threading
-from .logger import get_think_logger
 
+from .logger import get_think_logger
 
 _DEBUG = False
 
@@ -59,12 +59,14 @@ class Clock:
             self._time = time
 
     def register(self, thread):
+        n_threads = 0
         with self.threads_lock:
             self.threads[thread] = _ThreadInfo(len(self.threads) + 1)
             if _DEBUG:
                 self.debug("register thread: " + thread.name)
+            n_threads = len(self.threads)
         with self.barrier_lock:
-            self.barrier._parties = self.barrier._parties + 1
+            self.barrier._parties = n_threads # self.barrier._parties + 1
             if _DEBUG:
                 self.debug("({} threads in barrier)".format(
                     self.barrier.parties))

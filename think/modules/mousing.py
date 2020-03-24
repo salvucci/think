@@ -1,29 +1,23 @@
 import math
-from think import Module, Location
+
+from think import Location, Module
+
+from .hands import Hands
 
 
-class Mouse(Module):
+class Mousing(Module):
 
-    def __init__(self, hands, vision):
-        super().__init__("mouse", hands.agent)
-        self.hands = hands
+    def __init__(self, agent, mouse, vision, hands=None):
+        super().__init__("mousing", agent)
+        self.mouse = mouse
         self.vision = vision
+        self.hands = hands or Hands(agent)
         self.worker = hands.worker
         self.loc = Location(0, 0)
-        self.move_fns = []
-        self.click_fns = []
         self.init_time = .050
         self.burst_time = .050
         self.fitts_coeff = .100
         self.min_fitts_time = .100
-
-    def add_move_fn(self, fn):
-        self.move_fns.append(fn)
-        return self
-
-    def add_click_fn(self, fn):
-        self.click_fns.append(fn)
-        return self
 
     def fitts(self, coeff, d, w):
         if w <= 0:
@@ -53,8 +47,8 @@ class Mouse(Module):
 
         def fn():
             self.loc = visual
-            for fn in self.move_fns:
-                fn(visual)
+            self.mouse.move(visual.x, visual.y)
+
         self.worker.run(duration, "moved mouse {}".format(visual), fn)
 
     def move_to(self, visual):
@@ -75,8 +69,8 @@ class Mouse(Module):
             if self.loc is not None:
                 for visual in self.vision.visuals:
                     if visual.contains(self.loc):
-                        for fn in self.click_fns:
-                            fn(visual)
+                        self.mouse.click()
+
         self.worker.run(duration, "click mouse {}".format(self.loc), fn)
 
     def click(self):

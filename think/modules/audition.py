@@ -1,7 +1,9 @@
 import math
 import random
-from think import Module, Buffer, Location, Item, Query
-from .utilities import text_to_words, count_syllables
+
+from think import Buffer, Item, Location, Module, Query
+
+from .utilities import count_syllables, text_to_words
 
 
 class Aural(Item):
@@ -40,7 +42,7 @@ class Audition(Module):
                 syll = count_syllables(word)
                 self.add(Aural('word'), word)
                 self.agent.wait(syll * self.syllable_rate)
-        self.agent.run(thread)
+        self.agent.run_thread(thread)
         return self
 
     def remove(self, aural):
@@ -125,14 +127,14 @@ class Audition(Module):
             self.last_encode_cancel.try_cancel()
 
         def fn():
-            self.log("encoded {}".format(obj))
+            self.log('encoded "{}"'.format(obj))
             self.encode_buffer.set(obj)
             aural.set('heard', True)
             self.remove(aural)
             for fn in self.encode_fns:
                 fn(aural, object)
 
-        self.last_encode_cancel = self.run_can_cancel(fn, duration)
+        self.last_encode_cancel = self.run_thread_can_cancel(fn, duration)
 
     def start_encode(self, aural, suppress_think=False):
         self.encode_buffer.acquire()
