@@ -39,12 +39,12 @@ class PairedAssociatesTask(Task):
                 self.trial_digit = digit
                 self.responded = False
                 self.display.clear()
-                self.display.add(50, 50, 20, 20, 'word', word)
+                self.display.add_text(50, 50, word, isa='word')
                 self.wait(5.0)
                 if not self.responded:
                     self.log('incorrect response')
                     self.corrects.add(self.block, 0)
-                self.display.add(50, 50, 20, 20, 'digit', digit)
+                self.display.add_text(50, 50, digit, isa='digit')
                 self.wait(5.0)
 
 

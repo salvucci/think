@@ -11,8 +11,8 @@ class VisionTest(unittest.TestCase):
         eyes = Eyes(agent)
         vision = Vision(agent, display, eyes)
         eyes.move_to(100, 100)
-        display.add(50, 50, 20, 20, 'text', "Hello")
-        display.add(150, 150, 20, 20, 'text', "Goodbye")
+        display.add_text(50, 50, 'Hello')
+        display.add_text(150, 150, 'Goodbye')
 
         self.assertEqual("Hello", vision.find_and_encode(
             Query(isa='text').lt('x', 100)))

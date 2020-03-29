@@ -15,9 +15,8 @@ class ClickAMoleTask(Task):
         def update_target():
             self.display.clear()
             self.wait(1.0)
-            self.display.add(random.randint(0, 500),
-                             random.randint(0, 500),
-                             30, 30, 'target', 'X')
+            self.display.add_text(random.randint(0, 500), random.randint(0, 500),
+                                  'X', isa='target')
 
         def click_target(obj):
             self.run_thread(update_target)

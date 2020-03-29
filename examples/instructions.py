@@ -18,7 +18,7 @@ class TypeLetterTask(Task):
 
         self.keyboard.add_type_fn(handle_key)
 
-        self.display.add(50, 50, 20, 20, 'text', 'a')
+        self.display.add_text(50, 50, 'a')
         pointer = self.display.add(50, 50, 1, 1, 'pointer', 'pointer')
 
         speech = [

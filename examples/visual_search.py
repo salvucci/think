@@ -26,9 +26,8 @@ class VisualSearchTask(Task):
             for i in range(self.n_targets):
                 isa = 'target' if i == target_index else 'distractor'
                 string = '|' if i == target_index else '-'
-                self.display.add(random.randint(10, 90),
-                                 random.randint(10, 90),
-                                 20, 20, isa, string)
+                self.display.add_text(random.randint(10, 90), random.randint(10, 90),
+                                      string, isa=isa)
             self.record('stimulus')
 
 

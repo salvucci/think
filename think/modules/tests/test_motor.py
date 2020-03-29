@@ -39,9 +39,8 @@ class MouseTest(unittest.TestCase):
                 def fn():
                     vision.clear()
                     agent.wait(1.0)
-                    self.button = machine.display.add(
-                        random.randint(0, 500), random.randint(0, 500),
-                        30, 30, 'button', 'X')
+                    self.button = machine.display.add_button(
+                        random.randint(0, 500), random.randint(0, 500), 'X')
                 agent.run_thread(fn)
 
         update()

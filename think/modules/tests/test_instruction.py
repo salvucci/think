@@ -47,7 +47,7 @@ class InstructionTest(unittest.TestCase):
 
         machine.keyboard.add_type_fn(type_handler)
 
-        machine.display.add(50, 50, 20, 20, 'text', 'a')
+        machine.display.add_text(50, 50,'a')
         pointer = machine.display.add(50, 50, 1, 1, 'pointer', 'pointer')
 
         speech = [
@@ -110,7 +110,7 @@ class InstructionTest(unittest.TestCase):
 
         equation = ['3', 'x', '/', '12', '=', '15', '/', '4']
         for i in range(0, len(equation)):
-            machine.display.add(50 + 50 * i, 50, 20, 20, 'text', equation[i])
+            machine.display.add_text(50 + 50 * i, 50, equation[i])
         pointer = machine.display.add(50, 50, 1, 1, 'pointer', 'pointer')
 
         speech = [

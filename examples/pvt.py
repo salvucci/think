@@ -19,7 +19,7 @@ class PVTTask(Task):
 
         while self.time() < time:
             self.wait(random.randint(2.0, 10.0))
-            self.display.add(50, 50, 20, 20, 'letter', 'X')
+            self.display.add_text(50, 50, 'X')
 
 
 class PVTAgent(Agent):

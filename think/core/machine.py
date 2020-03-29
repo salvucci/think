@@ -40,6 +40,13 @@ class Display:
         self.vision.check_wait_for(visual)
         return visual
 
+    def add_text(self, x, y, text, isa='text'):
+        text = str(text)
+        return self.add(x, y, len(text) * 16, 16, isa, text)
+
+    def add_button(self, x, y, text):
+        return self.add_text(x, y, text, isa='button')
+
     def object_at(self, x, y):
         loc = Location(x, y)
         for visual in self.visuals:
