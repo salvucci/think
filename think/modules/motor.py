@@ -94,14 +94,14 @@ class Motor(Module):
 
     # this is only movement, what about all time?
     def movement_time(self, from_loc, to_area):
-        d = self.vision.display.pixels_to_inches(from_loc.distance_to(to_area))
-        w = self.vision.display.pixels_to_inches(
+        d = self.display.pixels_to_inches(from_loc.distance_to(to_area))
+        w = self.display.pixels_to_inches(
             to_area.approach_width_from(from_loc))
         return self.mouse_init_time + max(self.mouse_burst_time, self.fitts(self.mouse_fitts_coeff, d, w))
 
     def calc_move_time(self, loc1, loc2):
-        d = self.vision.display.pixels_to_degrees(loc1.distance_to(loc2))
-        w = self.vision.display.pixels_to_degrees(
+        d = self.display.pixels_to_degrees(loc1.distance_to(loc2))
+        w = self.display.pixels_to_degrees(
             loc2.approach_width_from(loc1))
         return self.mouse_init_time + max(self.mouse_burst_time, self.fitts(self.mouse_fitts_coeff, d, w))
 
@@ -134,7 +134,7 @@ class Motor(Module):
 
         def fn():
             if self.mouse_loc is not None:
-                for visual in self.vision.visuals:
+                for visual in self.display.visuals:
                     if visual.contains(self.mouse_loc):
                         self.mouse.click()
 

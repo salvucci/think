@@ -1,12 +1,23 @@
 import math
+import threading
 
 from .item import Area, Location
 
 
+class DisplayVisual(Area):
+
+    def __init__(self, x, y, w, h, isa, obj):
+        super().__init__(x, y, w, h, isa)
+        self.set('seen', False)
+        self.freq = None
+        self.obj = obj
+
+
 class Display:
 
-    def __init__(self, viewing_distance=30, pixels_per_inch=72):
+    def __init__(self, viewing_distance=30, pixels_per_inch=72, draw=False):
         self.vision = None
+        self.visuals = []
         self.viewing_distance = viewing_distance
         self.pixels_per_inch = pixels_per_inch
 
@@ -24,13 +35,20 @@ class Display:
         return self.viewing_distance * math.tan(math.radians(angle)) * self.pixels_per_inch
 
     def add(self, x, y, w, h, isa, obj):
-        return self.vision.add_from_display(Area(x, y, w, h, isa=isa), obj)
+        visual = DisplayVisual(x, y, w, h, isa, obj)
+        self.visuals.append(visual)
+        self.vision.check_wait_for(visual)
+        return visual
 
     def object_at(self, x, y):
-        return self.vision.object_at(Location(x, y))
+        loc = Location(x, y)
+        for visual in self.visuals:
+            if visual.contains(loc):
+                return visual.obj
+        return None
 
     def clear(self):
-        self.vision.clear()
+        self.visuals = []
         return self
 
 

@@ -13,15 +13,13 @@ class PVTTask(Task):
     def run(self, time):
 
         def handle_key(key):
-            self.record('response')
             self.display.clear()
 
         self.keyboard.add_type_fn(handle_key)
 
         while self.time() < time:
             self.wait(random.randint(2.0, 10.0))
-            self.display.add(50, 50, 20, 20, 'stimulus', 'X')
-            self.record('stimulus')
+            self.display.add(50, 50, 20, 20, 'letter', 'X')
 
 
 class PVTAgent(Agent):

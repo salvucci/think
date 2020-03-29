@@ -47,9 +47,8 @@ class InstructionTest(unittest.TestCase):
 
         machine.keyboard.add_type_fn(type_handler)
 
-        vision.add(Visual(50, 50, 20, 20, 'text'), 'a')
-        pointer = Visual(50, 50, 1, 1, 'pointer')
-        vision.add(pointer, 'pointer')
+        machine.display.add(50, 50, 20, 20, 'text', 'a')
+        pointer = machine.display.add(50, 50, 1, 1, 'pointer', 'pointer')
 
         speech = [
             'to type',
@@ -111,9 +110,8 @@ class InstructionTest(unittest.TestCase):
 
         equation = ['3', 'x', '/', '12', '=', '15', '/', '4']
         for i in range(0, len(equation)):
-            vision.add(Visual(50 + 50 * i, 50, 20, 20, 'text'), equation[i])
-        pointer = Visual(50, 50, 1, 1, 'pointer')
-        vision.add(pointer, 'pointer')
+            machine.display.add(50 + 50 * i, 50, 20, 20, 'text', equation[i])
+        pointer = machine.display.add(50, 50, 1, 1, 'pointer', 'pointer')
 
         speech = [
             'to solve',
