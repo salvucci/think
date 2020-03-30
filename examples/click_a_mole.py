@@ -39,7 +39,7 @@ class ClickAMoleAgent(Agent):
             self.motor.point_and_click(visual)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     machine = Machine()
     task = ClickAMoleTask(machine)
     agent = ClickAMoleAgent(machine)

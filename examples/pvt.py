@@ -37,7 +37,7 @@ class PVTAgent(Agent):
             self.vision.get_encoded()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     machine = Machine()
     task = PVTTask(machine)
     agent = PVTAgent(machine)

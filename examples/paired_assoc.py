@@ -99,7 +99,7 @@ class PairedAssociatesSimulation():
         return (result_correct, result_rt)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     # one simulation
     # machine = Machine()

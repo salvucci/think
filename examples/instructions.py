@@ -79,7 +79,7 @@ class TypeLetterAgent(Agent):
         self.instruction.execute(goal)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     machine = Machine()
     task = TypeLetterTask(machine)
     agent = TypeLetterAgent(machine)

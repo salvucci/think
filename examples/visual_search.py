@@ -54,7 +54,7 @@ class VisualSearchAgent(Agent):
                 self.motor.type('k')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     machine = Machine()
     task = VisualSearchTask(machine)
     agent = VisualSearchAgent(machine)
