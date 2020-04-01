@@ -71,6 +71,7 @@ class Vision(Module):
         duration = self.find_time
         if match is not None:
             def fn():
+                self.display.set_attend(match)
                 for fn in self.attend_fns:
                     fn(match)
             self.find_buffer.set(match, duration, 'found {}'.format(match), fn)
