@@ -102,8 +102,10 @@ class Vision(Module):
         duration = self.find_time
 
         def fn():
+            self.display.set_attend(visual)
             for fn in self.attend_fns:
                 fn(visual)
+
         self.find_buffer.set(visual, duration, 'found {}'.format(visual), fn)
 
     def wait_for(self, query=None, **kwargs):

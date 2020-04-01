@@ -1,9 +1,25 @@
 import logging
 import threading
+import time
 
 from .logger import get_think_logger
 
 _DEBUG = False
+
+
+try:
+
+    import os
+    os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = 'hide'
+    import pygame
+
+    def sleep(sec):
+        pygame.time.delay(int(1000 * sec))
+
+except ImportError as e:
+
+    def sleep(sec):
+        time.sleep(sec)
 
 
 class _ThreadInfo:
@@ -52,14 +68,19 @@ class Clock:
     def advance(self, dt):
         with self.time_lock:
             self._time += dt
+            if self.real_time:
+                sleep(dt)
 
     def time(self):
         with self.time_lock:
             return self._time
 
-    def set(self, time):
+    def set(self, t):
         with self.time_lock:
-            self._time = time
+            old_time = self._time
+            self._time = t
+            if self.real_time and old_time < t:
+                sleep(t - old_time)
 
     def register(self, thread):
         n_threads = 0

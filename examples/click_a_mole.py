@@ -16,7 +16,7 @@ class ClickAMoleTask(Task):
             self.display.clear()
             self.wait(1.0)
             self.display.add_text(random.randint(0, 500), random.randint(0, 500),
-                                  'X', isa='target')
+                                  'X', isa='button')
 
         def click_target(obj):
             self.run_thread(update_target)
@@ -35,7 +35,7 @@ class ClickAMoleAgent(Agent):
 
     def run(self, time):
         while self.time() < time:
-            visual = self.vision.wait_for(isa='target')
+            visual = self.vision.wait_for(isa='button')
             self.motor.point_and_click(visual)
 
 

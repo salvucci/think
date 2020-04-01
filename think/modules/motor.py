@@ -114,7 +114,8 @@ class Motor(Module):
 
         def fn():
             self.mouse_loc = visual
-            self.mouse.move(visual.x, visual.y)
+            self.mouse.move(visual)
+            self.display.set_pointer(visual)
 
         self.worker.run(duration, 'moved mouse {}'.format(visual), fn)
 
@@ -134,9 +135,8 @@ class Motor(Module):
 
         def fn():
             if self.mouse_loc is not None:
-                for visual in self.display.visuals:
-                    if visual.contains(self.mouse_loc):
-                        self.mouse.click()
+                self.mouse.click(self.mouse_loc)
+                self.display.set_click(self.mouse_loc)
 
         self.worker.run(duration, 'clicked mouse {}'.format(self.mouse_loc), fn)
 

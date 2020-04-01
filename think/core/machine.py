@@ -2,6 +2,7 @@ import math
 import threading
 
 from .item import Area, Location
+from .window import DisplayWindow
 
 
 class DisplayVisual(Area):
@@ -15,15 +16,20 @@ class DisplayVisual(Area):
 
 class Display:
 
-    def __init__(self, viewing_distance=30, pixels_per_inch=72, draw=False):
+    def __init__(self, viewing_distance=30, pixels_per_inch=72, window=None):
         self.vision = None
         self.visuals = []
         self.viewing_distance = viewing_distance
         self.pixels_per_inch = pixels_per_inch
+        self.window = DisplayWindow(self, size=window) if window else None
 
     def set_vision(self, vision):
         self.vision = vision
         return self
+
+    def _draw_if_window(self):
+        if self.window:
+            self.window.draw()
 
     def pixels_to_inches(self, pixels):
         return pixels / self.pixels_per_inch
@@ -38,6 +44,7 @@ class Display:
         visual = DisplayVisual(x, y, w, h, isa, obj)
         self.visuals.append(visual)
         self.vision.check_wait_for(visual)
+        self._draw_if_window()
         return visual
 
     def add_text(self, x, y, text, isa='text'):
@@ -47,16 +54,22 @@ class Display:
     def add_button(self, x, y, text):
         return self.add_text(x, y, text, isa='button')
 
-    def object_at(self, x, y):
-        loc = Location(x, y)
-        for visual in self.visuals:
-            if visual.contains(loc):
-                return visual.obj
-        return None
-
     def clear(self):
         self.visuals = []
+        self._draw_if_window()
         return self
+
+    def set_attend(self, visual):
+        if self.window:
+            self.window.set_attend(visual)
+
+    def set_pointer(self, visual):
+        if self.window:
+            self.window.set_pointer(visual)
+
+    def set_click(self, visual):
+        if self.window:
+            self.window.set_click(visual)
 
 
 class Speakers:
@@ -157,8 +170,7 @@ class Mouse:
 
     def __init__(self, display):
         self.display = display
-        self.x = 0
-        self.y = 0
+        self.visual = None
         self.move_fns = []
         self.click_fns = []
 
@@ -170,24 +182,23 @@ class Mouse:
         self.click_fns.append(fn)
         return self
 
-    def move(self, x, y):
-        self.x = x
-        self.y = y
+    def move(self, visual):
+        self.visual = visual
         for fn in self.move_fns:
-            fn(self.x, self.y)
+            fn(self.visual)
         return self
 
-    def click(self):
-        obj = self.display.object_at(self.x, self.y)
+    def click(self, visual):
+        self.visual = visual
         for fn in self.click_fns:
-            fn(obj)
+            fn(self.visual)
         return self
 
 
 class Machine:
 
-    def __init__(self):
-        self.display = Display()
+    def __init__(self, window=None):
+        self.display = Display(window=window)
         self.speakers = Speakers()
         self.keyboard = Keyboard()
         self.mouse = Mouse(self.display)

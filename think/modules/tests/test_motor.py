@@ -45,8 +45,8 @@ class MouseTest(unittest.TestCase):
 
         update()
 
-        def fn(obj):
-            if obj == 'X':
+        def fn(visual):
+            if visual.obj == 'X':
                 update()
 
         machine.mouse.add_click_fn(fn)
