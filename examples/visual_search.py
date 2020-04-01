@@ -14,21 +14,18 @@ class VisualSearchTask(Task):
     def run(self, time):
 
         def handle_key(key):
-            self.record(key)
             self.display.clear()
 
         self.keyboard.add_type_fn(handle_key)
 
         while self.time() < time:
-            self.wait(10.0)
+            self.wait(3.0)
             self.display.clear()
             target_index = random.randint(0, self.n_targets)
             for i in range(self.n_targets):
-                isa = 'target' if i == target_index else 'distractor'
-                string = '|' if i == target_index else '-'
-                self.display.add_text(random.randint(10, 90), random.randint(10, 90),
-                                      string, isa=isa)
-            self.record('stimulus')
+                string = 'C' if i == target_index else 'O'
+                self.display.add_text(random.randint(10, 90),
+                                      random.randint(10, 90), string)
 
 
 class VisualSearchAgent(Agent):
@@ -41,11 +38,11 @@ class VisualSearchAgent(Agent):
     def run(self, time):
         while self.time() < time:
             visual = self.vision.wait_for(seen=False)
-            while (visual is not None
-                    and not visual.isa == 'target'):
-                self.vision.encode(visual)
+            obj = self.vision.encode(visual) if visual else None
+            while visual and obj != 'C':
                 visual = self.vision.find(seen=False)
-            if visual:
+                obj = self.vision.encode(visual) if visual else None
+            if obj == 'C':
                 self.log('target found')
                 self.motor.type('j')
                 self.vision.encode(visual)
