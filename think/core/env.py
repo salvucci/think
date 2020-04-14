@@ -82,13 +82,16 @@ class Speakers:
         return self
 
     def add(self, isa, obj):
-        return self.audition.add_from_speakers(isa, obj)
+        return (self.audition.add_from_speakers(isa, obj)
+                if self.audition else None)
 
     def add_speech(self, text):
-        return self.audition.add_speech(text)
+        return (self.audition.add_speech(text)
+                if self.audition else None)
 
     def clear(self):
-        self.audition.clear()
+        if self.audition:
+            self.audition.clear()
         return self
 
 
