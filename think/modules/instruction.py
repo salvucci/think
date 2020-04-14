@@ -1,6 +1,6 @@
 from inspect import signature
 
-from think import Item, Module, Query
+from think import Module, Query
 
 from .memory import Chunk
 
@@ -38,11 +38,11 @@ class Instruction(Module):
         self.goals[goal.name] = goal
         previous = 'start'
         sem = self._next_sem()
-        while sem is not None and sem.isa == 'action':
+        while sem is not None and sem.isa != 'done':
             action = Chunk(**sem.slots)
             action.set('goal', goal.name).set('previous', previous)
             goal.add(action)
-            self.memory.store(action)
+            self.memory.store(action, boost=10)
             previous = action
             sem = self._next_sem()
         return goal.name
@@ -56,7 +56,7 @@ class Instruction(Module):
             raise Exception
         goal = self.goals[name]
         self.log('executing goal {}'.format(goal.name))
-        context = context or Item()
+        context = context or Chunk()
         previous = 'start'
         for action in goal.actions:
             self.memory.recall(goal=goal.name, previous=previous)
