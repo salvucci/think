@@ -122,6 +122,7 @@ class Motor(Module):
     def move_to(self, visual):
         self.start_move_to(visual)
         self.worker.wait_until_free()
+        self.vision.get_encoded()
         return self
 
     def calc_click_time(self):
@@ -146,5 +147,4 @@ class Motor(Module):
 
     def point_and_click(self, visual):
         self.move_to(visual)
-        self.vision.get_encoded()
         self.click()
