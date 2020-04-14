@@ -1,13 +1,13 @@
 import unittest
 
-from think import Agent, Eyes, Machine, Query, Vision, Visual
+from think import Agent, Eyes, Environment, Query, Vision, Visual
 
 
 class VisionTest(unittest.TestCase):
 
     def test_vision(self, output=False):
         agent = Agent(output=output)
-        display = Machine().display
+        display = Environment().display
         eyes = Eyes(agent)
         vision = Vision(agent, display, eyes)
         eyes.move_to(100, 100)

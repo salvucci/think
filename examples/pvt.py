@@ -1,14 +1,14 @@
 import random
 
-from think import Agent, Machine, Motor, Task, Vision, World
+from think import Agent, Environment, Motor, Task, Vision, World
 
 
 class PVTTask(Task):
 
-    def __init__(self, machine):
+    def __init__(self, env):
         super().__init__()
-        self.display = machine.display
-        self.keyboard = machine.keyboard
+        self.display = env.display
+        self.keyboard = env.keyboard
 
     def run(self, time):
 
@@ -24,10 +24,10 @@ class PVTTask(Task):
 
 class PVTAgent(Agent):
 
-    def __init__(self, machine):
+    def __init__(self, env):
         super().__init__(output=True)
-        self.vision = Vision(self, machine.display)
-        self.motor = Motor(self, self.vision, machine)
+        self.vision = Vision(self, env.display)
+        self.motor = Motor(self, self.vision, env)
 
     def run(self, time):
         while self.time() < time:
@@ -38,7 +38,7 @@ class PVTAgent(Agent):
 
 
 if __name__ == '__main__':
-    machine = Machine()
-    task = PVTTask(machine)
-    agent = PVTAgent(machine)
+    env = Environment()
+    task = PVTTask(env)
+    agent = PVTAgent(env)
     World(task, agent).run(30)

@@ -1,14 +1,14 @@
 import random
 
-from think import Agent, Machine, Motor, Mouse, Task, Vision, World
+from think import Agent, Environment, Motor, Mouse, Task, Vision, World
 
 
 class ClickAMoleTask(Task):
 
-    def __init__(self, machine):
+    def __init__(self, env):
         super().__init__()
-        self.display = machine.display
-        self.mouse = machine.mouse
+        self.display = env.display
+        self.mouse = env.mouse
 
     def run(self, time):
 
@@ -28,10 +28,10 @@ class ClickAMoleTask(Task):
 
 class ClickAMoleAgent(Agent):
 
-    def __init__(self, machine):
+    def __init__(self, env):
         super().__init__(output=True)
-        self.vision = Vision(self, machine.display)
-        self.motor = Motor(self, self.vision, machine)
+        self.vision = Vision(self, env.display)
+        self.motor = Motor(self, self.vision, env)
 
     def run(self, time):
         while self.time() < time:
@@ -40,7 +40,7 @@ class ClickAMoleAgent(Agent):
 
 
 if __name__ == '__main__':
-    machine = Machine()
-    task = ClickAMoleTask(machine)
-    agent = ClickAMoleAgent(machine)
+    env = Environment()
+    task = ClickAMoleTask(env)
+    agent = ClickAMoleAgent(env)
     World(task, agent).run(30)

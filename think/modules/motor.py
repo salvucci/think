@@ -9,12 +9,12 @@ class Motor(Module):
     ON_MOUSE = 2
     DEFAULT_TYPING_WPM = 40
 
-    def __init__(self, agent, vision, machine, pos=None):
+    def __init__(self, agent, vision, env, pos=None):
         super().__init__('motor', agent)
         self.vision = vision
-        self.display = machine.display
-        self.keyboard = machine.keyboard
-        self.mouse = machine.mouse
+        self.display = env.display
+        self.keyboard = env.keyboard
+        self.mouse = env.mouse
         self.pos = pos or Motor.ON_KEYBOARD
         self.worker = Worker('motor', self)
         self.wpm(Motor.DEFAULT_TYPING_WPM)

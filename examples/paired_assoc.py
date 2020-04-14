@@ -1,6 +1,6 @@
 import random
 
-from think import Agent, Data, Machine, Memory, Motor, Task, Vision, World
+from think import Agent, Data, Environment, Memory, Motor, Task, Vision, World
 
 
 class PairedAssociatesTask(Task):
@@ -10,10 +10,10 @@ class PairedAssociatesTask(Task):
              ("neck", 0), ("pipe", 1), ("quip", 2), ("rope", 3), ("sock", 4),
              ("tent", 5), ("vent", 6), ("wall", 7), ("xray", 8), ("zinc", 9)]
 
-    def __init__(self, machine, corrects=None, rts=None):
+    def __init__(self, env, corrects=None, rts=None):
         super().__init__()
-        self.display = machine.display
-        self.keyboard = machine.keyboard
+        self.display = env.display
+        self.keyboard = env.keyboard
         self.corrects = corrects or Data(self.N_BLOCKS)
         self.rts = rts or Data(self.N_BLOCKS)
         self.responded = False
@@ -50,11 +50,11 @@ class PairedAssociatesTask(Task):
 
 class PairedAssociatesAgent(Agent):
 
-    def __init__(self, machine, output=True):
+    def __init__(self, env, output=True):
         super().__init__(output=output)
         self.memory = Memory(self, Memory.OPTIMIZED_DECAY)
-        self.vision = Vision(self, machine.display)
-        self.motor = Motor(self, self.vision, machine)
+        self.vision = Vision(self, env.display)
+        self.motor = Motor(self, self.vision, env)
         self.memory.decay_rate = .5
         self.memory.activation_noise = .5
         self.memory.retrieval_threshold = -1.8
@@ -84,9 +84,9 @@ class PairedAssociatesSimulation():
         rts = Data(PairedAssociatesTask.N_BLOCKS)
 
         for _ in range(self.n_sims):
-            machine = Machine()
-            task = PairedAssociatesTask(machine, corrects=corrects, rts=rts)
-            agent = PairedAssociatesAgent(machine, output=False)
+            env = Environment()
+            task = PairedAssociatesTask(env, corrects=corrects, rts=rts)
+            agent = PairedAssociatesAgent(env, output=False)
             World(task, agent).run(1590)
 
         result_correct = corrects.analyze(self.HUMAN_CORRECT)
@@ -102,9 +102,9 @@ class PairedAssociatesSimulation():
 if __name__ == '__main__':
 
     # one simulation
-    # machine = Machine()
-    # task = PairedAssociatesTask(machine)
-    # agent = PairedAssociatesAgent(machine)
+    # env = Environment()
+    # task = PairedAssociatesTask(env)
+    # agent = PairedAssociatesAgent(env)
     # World(task, agent).run(1590)
 
     # multiple simulations

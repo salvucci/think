@@ -1,13 +1,13 @@
 import unittest
 
-from think import Agent, Audition, Aural, Machine, Query
+from think import Agent, Audition, Aural, Environment, Query
 
 
 class AuditionTest(unittest.TestCase):
 
     def test_audition(self, output=False):
         agent = Agent(output=output)
-        speakers = Machine().speakers
+        speakers = Environment().speakers
         audition = Audition(agent, speakers)
 
         word = 'Hello'

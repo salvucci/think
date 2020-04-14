@@ -1,14 +1,14 @@
-from think import (Agent, Audition, Aural, Instruction, Item, Language,
-                   Machine, Memory, Motor, Query, Task, Vision, Visual, World)
+from think import (Agent, Audition, Aural, Environment, Instruction, Item,
+                   Language, Memory, Motor, Query, Task, Vision, Visual, World)
 
 
 class TypeLetterTask(Task):
 
-    def __init__(self, machine):
+    def __init__(self, env):
         super().__init__()
-        self.display = machine.display
-        self.speakers = machine.speakers
-        self.keyboard = machine.keyboard
+        self.display = env.display
+        self.speakers = env.speakers
+        self.keyboard = env.keyboard
 
     def run(self, time):
         typed = []
@@ -40,12 +40,12 @@ class TypeLetterTask(Task):
 
 class TypeLetterAgent(Agent):
 
-    def __init__(self, machine, output=True):
+    def __init__(self, env, output=True):
         super().__init__(output=output)
         self.memory = Memory(self)
-        self.vision = Vision(self, machine.display)
-        self.audition = Audition(self, machine.speakers)
-        self.motor = Motor(self, self.vision, machine)
+        self.vision = Vision(self, env.display)
+        self.audition = Audition(self, env.speakers)
+        self.motor = Motor(self, self.vision, env)
 
         def interpreter(words):
             if words[0] == 'read':
@@ -80,7 +80,7 @@ class TypeLetterAgent(Agent):
 
 
 if __name__ == '__main__':
-    machine = Machine()
-    task = TypeLetterTask(machine)
-    agent = TypeLetterAgent(machine)
+    env = Environment()
+    task = TypeLetterTask(env)
+    agent = TypeLetterAgent(env)
     World(task, agent).run(30)

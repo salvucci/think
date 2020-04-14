@@ -195,7 +195,7 @@ class Mouse:
         return self
 
 
-class Machine:
+class Environment:
 
     def __init__(self, window=None):
         self.display = Display(window=window)

@@ -1,14 +1,14 @@
 import random
 
-from think import Agent, Machine, Motor, Task, Vision, World
+from think import Agent, Environment, Motor, Task, Vision, World
 
 
 class VisualSearchTask(Task):
 
-    def __init__(self, machine, n_targets=5):
+    def __init__(self, env, n_targets=5):
         super().__init__()
-        self.display = machine.display
-        self.keyboard = machine.keyboard
+        self.display = env.display
+        self.keyboard = env.keyboard
         self.n_targets = n_targets
 
     def run(self, time):
@@ -30,10 +30,10 @@ class VisualSearchTask(Task):
 
 class VisualSearchAgent(Agent):
 
-    def __init__(self, machine):
+    def __init__(self, env):
         super().__init__(output=True)
-        self.vision = Vision(self, machine.display)
-        self.motor = Motor(self, self.vision, machine)
+        self.vision = Vision(self, env.display)
+        self.motor = Motor(self, self.vision, env)
 
     def run(self, time):
         while self.time() < time:
@@ -52,7 +52,7 @@ class VisualSearchAgent(Agent):
 
 
 if __name__ == '__main__':
-    machine = Machine()
-    task = VisualSearchTask(machine)
-    agent = VisualSearchAgent(machine)
+    env = Environment()
+    task = VisualSearchTask(env)
+    agent = VisualSearchAgent(env)
     World(task, agent).run(30)
