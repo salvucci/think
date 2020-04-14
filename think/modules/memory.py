@@ -72,7 +72,7 @@ class Memory(Module):
                 return existing
         return None
 
-    def store(self, chunk=None, **kwargs):
+    def store(self, chunk=None, boost=None, **kwargs):
         if not chunk:
             chunk = Chunk(**kwargs)
         self.think('store {}'.format(chunk))
@@ -87,6 +87,10 @@ class Memory(Module):
             chunk.creation_time = self.time()
             self._add_use(chunk)
             self.add(chunk)
+        if boost is not None:
+            for _ in range(boost):
+                self._add_use(chunk)
+            self.log('boosted {} times'.format(boost))
         self._compute_activation(chunk)
         return chunk
 
