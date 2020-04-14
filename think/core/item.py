@@ -6,6 +6,9 @@ class Item:
     def __init__(self, **slotvals):
         self.slots = slotvals
 
+    def get_slots(self):
+        return self.slots.keys()
+
     def get(self, slot):
         return self.slots[slot] if slot in self.slots else None
 
