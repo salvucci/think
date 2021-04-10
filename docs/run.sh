@@ -1,3 +1,5 @@
 #!/bin/bash
-sphinx-apidoc -o . ..
+
+sphinx-apidoc -f -o . ..
+make clean
 make html

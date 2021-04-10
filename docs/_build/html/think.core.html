@@ -37,7 +37,9 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="think.core.tests package" href="think.core.tests.html" />
+    <link rel="prev" title="think package" href="think.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,25 +84,35 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">think.core package</a><ul>
-<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#think-core-agent-module">think.core.agent module</a></li>
-<li><a class="reference internal" href="#think-core-analysis-module">think.core.analysis module</a></li>
-<li><a class="reference internal" href="#think-core-clock-module">think.core.clock module</a></li>
-<li><a class="reference internal" href="#think-core-env-module">think.core.env module</a></li>
-<li><a class="reference internal" href="#think-core-item-module">think.core.item module</a></li>
-<li><a class="reference internal" href="#think-core-logger-module">think.core.logger module</a></li>
-<li><a class="reference internal" href="#think-core-process-module">think.core.process module</a></li>
-<li><a class="reference internal" href="#think-core-window-module">think.core.window module</a></li>
-<li><a class="reference internal" href="#think-core-world-module">think.core.world module</a></li>
-<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="think.html">think package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="think.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">think.core package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.agent">think.core.agent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.analysis">think.core.analysis module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.clock">think.core.clock module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.env">think.core.env module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.item">think.core.item module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.logger">think.core.logger module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.process">think.core.process module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.window">think.core.window module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core.world">think.core.world module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-think.core">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="think.modules.html">think.modules package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="think.skills.html">think.skills package</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="think.html#module-think">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples package</a></li>
+</ul>
+
             
           
         </div>
@@ -147,6 +159,8 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="think.html">think package</a> &raquo;</li>
+        
       <li>think.core package</li>
     
     
@@ -174,9 +188,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="think.core.tests.html">think.core.tests package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="think.core.tests.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="think.core.tests.html#think-core-tests-test-agent-module">think.core.tests.test_agent module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="think.core.tests.html#think-core-tests-test-item-module">think.core.tests.test_item module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="think.core.tests.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="think.core.tests.html#module-think.core.tests.test_agent">think.core.tests.test_agent module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="think.core.tests.html#module-think.core.tests.test_item">think.core.tests.test_item module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="think.core.tests.html#module-think.core.tests">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -185,35 +199,808 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="think-core-agent-module">
-<h2>think.core.agent module<a class="headerlink" href="#think-core-agent-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.agent">
+<span id="think-core-agent-module"></span><h2>think.core.agent module<a class="headerlink" href="#module-think.core.agent" title="Permalink to this headline">¶</a></h2>
+<p>This module provides the basic agent functionality.</p>
+<dl class="py class">
+<dt id="think.core.agent.Agent">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.agent.</span></code><code class="sig-name descname"><span class="pre">Agent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'agent'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#think.core.process.Process" title="think.core.process.Process"><code class="xref py py-class docutils literal notranslate"><span class="pre">think.core.process.Process</span></code></a></p>
+<p>Represents a cognitive agent</p>
+<dl class="py method">
+<dt id="think.core.agent.Agent.add_module">
+<code class="sig-name descname"><span class="pre">add_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Agent.add_module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a module to the agent</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>module</strong> (<a class="reference internal" href="#think.core.agent.Module" title="think.core.agent.Module"><em>Module</em></a>) – module to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Agent.indexed_name">
+<code class="sig-name descname"><span class="pre">indexed_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Agent.indexed_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Agent.module">
+<code class="sig-name descname"><span class="pre">module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Agent.module" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Agent.think">
+<code class="sig-name descname"><span class="pre">think</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Agent.think" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.agent.Buffer">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.agent.</span></code><code class="sig-name descname"><span class="pre">Buffer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#think.core.agent.Worker" title="think.core.agent.Worker"><code class="xref py py-class docutils literal notranslate"><span class="pre">think.core.agent.Worker</span></code></a></p>
+<dl class="py method">
+<dt id="think.core.agent.Buffer.acquire">
+<code class="sig-name descname"><span class="pre">acquire</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Buffer.acquire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Buffer.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Buffer.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Buffer.get_and_release">
+<code class="sig-name descname"><span class="pre">get_and_release</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Buffer.get_and_release" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Buffer.set">
+<code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contents</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Buffer.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Buffer.wait_for_content">
+<code class="sig-name descname"><span class="pre">wait_for_content</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Buffer.wait_for_content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.agent.Module">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.agent.</span></code><code class="sig-name descname"><span class="pre">Module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#think.core.process.Process" title="think.core.process.Process"><code class="xref py py-class docutils literal notranslate"><span class="pre">think.core.process.Process</span></code></a></p>
+<dl class="py method">
+<dt id="think.core.agent.Module.debug">
+<code class="sig-name descname"><span class="pre">debug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Module.debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Module.log">
+<code class="sig-name descname"><span class="pre">log</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Module.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Module.think">
+<code class="sig-name descname"><span class="pre">think</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Module.think" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.agent.Worker">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.agent.</span></code><code class="sig-name descname"><span class="pre">Worker</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Worker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.agent.Worker.acquire">
+<code class="sig-name descname"><span class="pre">acquire</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Worker.acquire" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Worker.release">
+<code class="sig-name descname"><span class="pre">release</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Worker.release" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Worker.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Worker.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.agent.Worker.wait_until_free">
+<code class="sig-name descname"><span class="pre">wait_until_free</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.agent.Worker.wait_until_free" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="think-core-analysis-module">
-<h2>think.core.analysis module<a class="headerlink" href="#think-core-analysis-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.analysis">
+<span id="think-core-analysis-module"></span><h2>think.core.analysis module<a class="headerlink" href="#module-think.core.analysis" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="think.core.analysis.Data">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.analysis.</span></code><code class="sig-name descname"><span class="pre">Data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.analysis.Data.add">
+<code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Data.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Data.analyze">
+<code class="sig-name descname"><span class="pre">analyze</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">human</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Data.analyze" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Data.means">
+<code class="sig-name descname"><span class="pre">means</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Data.means" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.analysis.Result">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.analysis.</span></code><code class="sig-name descname"><span class="pre">Result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">human</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.analysis.Result.output">
+<code class="sig-name descname"><span class="pre">output</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">places</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Result.output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.analysis.Values">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.analysis.</span></code><code class="sig-name descname"><span class="pre">Values</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.analysis.Values.add">
+<code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.average">
+<code class="sig-name descname"><span class="pre">average</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.average" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.ci">
+<code class="sig-name descname"><span class="pre">ci</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.ci" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.keep">
+<code class="sig-name descname"><span class="pre">keep</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.keep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.max">
+<code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.mean">
+<code class="sig-name descname"><span class="pre">mean</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.mean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.min">
+<code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.mse">
+<code class="sig-name descname"><span class="pre">mse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.mse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.nrmse">
+<code class="sig-name descname"><span class="pre">nrmse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.nrmse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.percent_over">
+<code class="sig-name descname"><span class="pre">percent_over</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.percent_over" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.r">
+<code class="sig-name descname"><span class="pre">r</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.r" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.rmse">
+<code class="sig-name descname"><span class="pre">rmse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.rmse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.sd">
+<code class="sig-name descname"><span class="pre">sd</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.sd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.se">
+<code class="sig-name descname"><span class="pre">se</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.se" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.size">
+<code class="sig-name descname"><span class="pre">size</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.sse">
+<code class="sig-name descname"><span class="pre">sse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.sse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.sum">
+<code class="sig-name descname"><span class="pre">sum</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.sum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.analysis.Values.tab_string">
+<code class="sig-name descname"><span class="pre">tab_string</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">places</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.analysis.Values.tab_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="think-core-clock-module">
-<h2>think.core.clock module<a class="headerlink" href="#think-core-clock-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.clock">
+<span id="think-core-clock-module"></span><h2>think.core.clock module<a class="headerlink" href="#module-think.core.clock" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="think.core.clock.Clock">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.clock.</span></code><code class="sig-name descname"><span class="pre">Clock</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.clock.Clock.advance">
+<code class="sig-name descname"><span class="pre">advance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.advance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.debug">
+<code class="sig-name descname"><span class="pre">debug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'clock'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.deregister">
+<code class="sig-name descname"><span class="pre">deregister</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.deregister" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.log">
+<code class="sig-name descname"><span class="pre">log</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'clock'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.n_children">
+<code class="sig-name descname"><span class="pre">n_children</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.n_children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.n_threads">
+<code class="sig-name descname"><span class="pre">n_threads</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.n_threads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.register">
+<code class="sig-name descname"><span class="pre">register</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thread</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.report_event">
+<code class="sig-name descname"><span class="pre">report_event</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.report_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.report_think">
+<code class="sig-name descname"><span class="pre">report_think</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.report_think" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.set">
+<code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.set_output">
+<code class="sig-name descname"><span class="pre">set_output</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.set_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.thread_index">
+<code class="sig-name descname"><span class="pre">thread_index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thread</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.thread_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.time">
+<code class="sig-name descname"><span class="pre">time</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.update_all">
+<code class="sig-name descname"><span class="pre">update_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.update_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.wait_for_all">
+<code class="sig-name descname"><span class="pre">wait_for_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.wait_for_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.wait_for_next_event">
+<code class="sig-name descname"><span class="pre">wait_for_next_event</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.wait_for_next_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.clock.Clock.wait_until">
+<code class="sig-name descname"><span class="pre">wait_until</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.Clock.wait_until" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="think.core.clock.sleep">
+<code class="sig-prename descclassname"><span class="pre">think.core.clock.</span></code><code class="sig-name descname"><span class="pre">sleep</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.clock.sleep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
-<div class="section" id="think-core-env-module">
-<h2>think.core.env module<a class="headerlink" href="#think-core-env-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.env">
+<span id="think-core-env-module"></span><h2>think.core.env module<a class="headerlink" href="#module-think.core.env" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="think.core.env.Display">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.env.</span></code><code class="sig-name descname"><span class="pre">Display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">viewing_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixels_per_inch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">72</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.env.Display.add">
+<code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.add_button">
+<code class="sig-name descname"><span class="pre">add_button</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.add_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.add_text">
+<code class="sig-name descname"><span class="pre">add_text</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.add_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.degrees_to_pixels">
+<code class="sig-name descname"><span class="pre">degrees_to_pixels</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.degrees_to_pixels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.pixels_to_degrees">
+<code class="sig-name descname"><span class="pre">pixels_to_degrees</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pixels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.pixels_to_degrees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.pixels_to_inches">
+<code class="sig-name descname"><span class="pre">pixels_to_inches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pixels</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.pixels_to_inches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.set_attend">
+<code class="sig-name descname"><span class="pre">set_attend</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visual</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.set_attend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.set_click">
+<code class="sig-name descname"><span class="pre">set_click</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visual</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.set_click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.set_pointer">
+<code class="sig-name descname"><span class="pre">set_pointer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visual</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.set_pointer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Display.set_vision">
+<code class="sig-name descname"><span class="pre">set_vision</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vision</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Display.set_vision" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.env.DisplayVisual">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.env.</span></code><code class="sig-name descname"><span class="pre">DisplayVisual</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.DisplayVisual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#think.core.item.Area" title="think.core.item.Area"><code class="xref py py-class docutils literal notranslate"><span class="pre">think.core.item.Area</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.env.Environment">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.env.</span></code><code class="sig-name descname"><span class="pre">Environment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Environment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.env.Keyboard">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.env.</span></code><code class="sig-name descname"><span class="pre">Keyboard</span></code><a class="headerlink" href="#think.core.env.Keyboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.env.Keyboard.add_type_fn">
+<code class="sig-name descname"><span class="pre">add_type_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Keyboard.add_type_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Keyboard.char">
+<code class="sig-name descname"><span class="pre">char</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Keyboard.char" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Keyboard.code">
+<code class="sig-name descname"><span class="pre">code</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Keyboard.code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Keyboard.shifted">
+<code class="sig-name descname"><span class="pre">shifted</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Keyboard.shifted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Keyboard.type">
+<code class="sig-name descname"><span class="pre">type</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Keyboard.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.env.Mouse">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.env.</span></code><code class="sig-name descname"><span class="pre">Mouse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.env.Mouse.add_click_fn">
+<code class="sig-name descname"><span class="pre">add_click_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Mouse.add_click_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Mouse.add_move_fn">
+<code class="sig-name descname"><span class="pre">add_move_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Mouse.add_move_fn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Mouse.click">
+<code class="sig-name descname"><span class="pre">click</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visual</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Mouse.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Mouse.move">
+<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visual</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Mouse.move" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.env.Speakers">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.env.</span></code><code class="sig-name descname"><span class="pre">Speakers</span></code><a class="headerlink" href="#think.core.env.Speakers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.env.Speakers.add">
+<code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Speakers.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Speakers.add_speech">
+<code class="sig-name descname"><span class="pre">add_speech</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Speakers.add_speech" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Speakers.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Speakers.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.env.Speakers.set_audition">
+<code class="sig-name descname"><span class="pre">set_audition</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.env.Speakers.set_audition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="think-core-item-module">
-<h2>think.core.item module<a class="headerlink" href="#think-core-item-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.item">
+<span id="think-core-item-module"></span><h2>think.core.item module<a class="headerlink" href="#module-think.core.item" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="think.core.item.Area">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.item.</span></code><code class="sig-name descname"><span class="pre">Area</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'area'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#think.core.item.Location" title="think.core.item.Location"><code class="xref py py-class docutils literal notranslate"><span class="pre">think.core.item.Location</span></code></a></p>
+<dl class="py method">
+<dt id="think.core.item.Area.approach_width_from">
+<code class="sig-name descname"><span class="pre">approach_width_from</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Area.approach_width_from" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Area.contains">
+<code class="sig-name descname"><span class="pre">contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Area.contains" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Area.resize">
+<code class="sig-name descname"><span class="pre">resize</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Area.resize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.item.Item">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.item.</span></code><code class="sig-name descname"><span class="pre">Item</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">slotvals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.item.Item.equals">
+<code class="sig-name descname"><span class="pre">equals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Item.equals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Item.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Item.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Item.get_slots">
+<code class="sig-name descname"><span class="pre">get_slots</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Item.get_slots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Item.has">
+<code class="sig-name descname"><span class="pre">has</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Item.has" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Item.matches">
+<code class="sig-name descname"><span class="pre">matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Item.matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Item.set">
+<code class="sig-name descname"><span class="pre">set</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Item.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Item.unset">
+<code class="sig-name descname"><span class="pre">unset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Item.unset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.item.Location">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.item.</span></code><code class="sig-name descname"><span class="pre">Location</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'location'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#think.core.item.Item" title="think.core.item.Item"><code class="xref py py-class docutils literal notranslate"><span class="pre">think.core.item.Item</span></code></a></p>
+<dl class="py method">
+<dt id="think.core.item.Location.angle_to">
+<code class="sig-name descname"><span class="pre">angle_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Location.angle_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Location.distance_to">
+<code class="sig-name descname"><span class="pre">distance_to</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Location.distance_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Location.distance_to_area">
+<code class="sig-name descname"><span class="pre">distance_to_area</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Location.distance_to_area" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Location.move">
+<code class="sig-name descname"><span class="pre">move</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Location.move" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.item.Query">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.item.</span></code><code class="sig-name descname"><span class="pre">Query</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">slotvals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.item.Query.eq">
+<code class="sig-name descname"><span class="pre">eq</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Query.ge">
+<code class="sig-name descname"><span class="pre">ge</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.ge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Query.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Query.gt">
+<code class="sig-name descname"><span class="pre">gt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.gt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Query.has">
+<code class="sig-name descname"><span class="pre">has</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.has" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Query.le">
+<code class="sig-name descname"><span class="pre">le</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.le" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Query.lt">
+<code class="sig-name descname"><span class="pre">lt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.lt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Query.matches">
+<code class="sig-name descname"><span class="pre">matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.item.Query.ne">
+<code class="sig-name descname"><span class="pre">ne</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.Query.ne" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.item.SlotQuery">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.item.</span></code><code class="sig-name descname"><span class="pre">SlotQuery</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.SlotQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.item.SlotQuery.matches">
+<code class="sig-name descname"><span class="pre">matches</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.item.SlotQuery.matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="think-core-logger-module">
-<h2>think.core.logger module<a class="headerlink" href="#think-core-logger-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.logger">
+<span id="think-core-logger-module"></span><h2>think.core.logger module<a class="headerlink" href="#module-think.core.logger" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="think.core.logger.get_think_logger">
+<code class="sig-prename descclassname"><span class="pre">think.core.logger.</span></code><code class="sig-name descname"><span class="pre">get_think_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'think'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logfilename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'outfile.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uselogfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'%(time)12.3f</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">%(source)-18s</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">%(message)s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.logger.get_think_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new logger.</p>
+</dd></dl>
+
 </div>
-<div class="section" id="think-core-process-module">
-<h2>think.core.process module<a class="headerlink" href="#think-core-process-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.process">
+<span id="think-core-process-module"></span><h2>think.core.process module<a class="headerlink" href="#module-think.core.process" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="think.core.process.Cancel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.process.</span></code><code class="sig-name descname"><span class="pre">Cancel</span></code><a class="headerlink" href="#think.core.process.Cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="think.core.process.Cancel.CANCELED">
+<code class="sig-name descname"><span class="pre">CANCELED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#think.core.process.Cancel.CANCELED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="think.core.process.Cancel.HAS_RUN">
+<code class="sig-name descname"><span class="pre">HAS_RUN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#think.core.process.Cancel.HAS_RUN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="think.core.process.Cancel.WILL_RUN">
+<code class="sig-name descname"><span class="pre">WILL_RUN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#think.core.process.Cancel.WILL_RUN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Cancel.try_cancel">
+<code class="sig-name descname"><span class="pre">try_cancel</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Cancel.try_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Cancel.try_run">
+<code class="sig-name descname"><span class="pre">try_run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Cancel.try_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.process.Process">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.process.</span></code><code class="sig-name descname"><span class="pre">Process</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.process.Process.debug">
+<code class="sig-name descname"><span class="pre">debug</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.debug" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.log">
+<code class="sig-name descname"><span class="pre">log</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.report_event">
+<code class="sig-name descname"><span class="pre">report_event</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.report_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.run_thread">
+<code class="sig-name descname"><span class="pre">run_thread</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.run_thread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.run_thread_can_cancel">
+<code class="sig-name descname"><span class="pre">run_thread_can_cancel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.run_thread_can_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.time">
+<code class="sig-name descname"><span class="pre">time</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.wait">
+<code class="sig-name descname"><span class="pre">wait</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.wait_for_all">
+<code class="sig-name descname"><span class="pre">wait_for_all</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.wait_for_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.wait_for_next_event">
+<code class="sig-name descname"><span class="pre">wait_for_next_event</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.wait_for_next_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="think.core.process.Process.wait_until">
+<code class="sig-name descname"><span class="pre">wait_until</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.process.Process.wait_until" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="think-core-window-module">
-<h2>think.core.window module<a class="headerlink" href="#think-core-window-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.window">
+<span id="think-core-window-module"></span><h2>think.core.window module<a class="headerlink" href="#module-think.core.window" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="think.core.window.DisplayWindow">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.window.</span></code><code class="sig-name descname"><span class="pre">DisplayWindow</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(500,</span> <span class="pre">500)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.window.DisplayWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
 </div>
-<div class="section" id="think-core-world-module">
-<h2>think.core.world module<a class="headerlink" href="#think-core-world-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core.world">
+<span id="think-core-world-module"></span><h2>think.core.world module<a class="headerlink" href="#module-think.core.world" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="think.core.world.Task">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.world.</span></code><code class="sig-name descname"><span class="pre">Task</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'task'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.world.Task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#think.core.process.Process" title="think.core.process.Process"><code class="xref py py-class docutils literal notranslate"><span class="pre">think.core.process.Process</span></code></a></p>
+<dl class="py method">
+<dt id="think.core.world.Task.record">
+<code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.world.Task.record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="think.core.world.World">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">think.core.world.</span></code><code class="sig-name descname"><span class="pre">World</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">processes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.world.World" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="think.core.world.World.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#think.core.world.World.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-think.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-think.core" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -222,6 +1009,10 @@
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="think.core.tests.html" class="btn btn-neutral float-right" title="think.core.tests package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="think.html" class="btn btn-neutral float-left" title="think package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

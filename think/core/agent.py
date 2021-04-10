@@ -1,3 +1,7 @@
+"""
+This module provides the basic agent functionality.
+"""
+
 import threading
 
 from .clock import Clock
@@ -7,8 +11,17 @@ _DEBUG = False
 
 
 class Agent(Process):
+    """Represents a cognitive agent
+    """
 
     def __init__(self, name='agent', clock=None, output=False):
+        """Creates an agent
+
+        Args:
+            name (str, optional): [description]. Defaults to 'agent'.
+            clock ([type], optional): [description]. Defaults to None.
+            output (bool, optional): [description]. Defaults to False.
+        """
         super().__init__(name, clock or Clock(output=output))
         self.think_time = .050
         self.clock.register(threading.current_thread())
@@ -22,6 +35,11 @@ class Agent(Process):
         return name
 
     def add_module(self, module):
+        """Adds a module to the agent
+
+        Args:
+            module (Module): module to add
+        """
         self.modules[module.name] = module
 
     def module(self, name):

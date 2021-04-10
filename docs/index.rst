@@ -7,11 +7,11 @@ Welcome to Think's documentation!
 =================================
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 4
     :caption: Contents:
 
     think
-
+    examples
 
 Indices and tables
 ==================
