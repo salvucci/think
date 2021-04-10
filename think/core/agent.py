@@ -29,6 +29,11 @@ class Agent(Process):
         self.modules = {}
 
     def indexed_name(self):
+        """Provides the name of the agent including its thread index
+
+        Returns:
+            str: agent name with thread index
+        """
         name = self.name
         if self.clock.n_children() > 1:
             name += '[{}]'.format(self.clock.thread_index())
@@ -43,6 +48,14 @@ class Agent(Process):
         self.modules[module.name] = module
 
     def module(self, name):
+        """Returns the named module
+
+        Args:
+            name (string): name of the module
+
+        Returns:
+            Module: the module
+        """
         return self.modules[name]
 
     def think(self, message):

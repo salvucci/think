@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Welcome to Think’s documentation! &mdash; Think 1.0 documentation</title>
+  <title>Think &mdash; Think 1.0 documentation</title>
   
 
   
@@ -135,7 +135,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to Think’s documentation!</li>
+      <li>Think</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -154,8 +154,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-think-s-documentation">
-<h1>Welcome to Think’s documentation!<a class="headerlink" href="#welcome-to-think-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="think">
+<h1>Think<a class="headerlink" href="#think" title="Permalink to this headline">¶</a></h1>
+<p>Think is a Python-based library that allows users to build <em>cognitive models</em> using <em>cognitive code</em>. Cognitive modeling is a way of building intelligent agents that think and act as much like humans as possible. Typically, people write cognitive models to simulate human behavior in particular tasks and try to match a model’s behavior with data from human experiments.</p>
+<p>Cognitive code represents a new way of writing cognitive models. Whereas traditional cognitive models are written using their own specialized languages (e.g., ACT-R or Soar), cognitive code embeds cognitive-like processing within common general programming languages. For example, let’s say that you want a realistic simulation of remembering a simple fact and then later recalling that fact. This code stores a simple fact that Jane’s cat is named Whiskers, and then later, tries to recall this name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">memory</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">isa</span><span class="o">=</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Whiskers&#39;</span><span class="p">)</span>
+<span class="c1"># ...</span>
+<span class="n">fact</span> <span class="o">=</span> <span class="n">memory</span><span class="o">.</span><span class="n">recall</span><span class="p">(</span><span class="n">isa</span><span class="o">=</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="s1">&#39;Jane&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each line of cognitive code in this example incurs some time cost that simulates the passage of time. The last line also incorporates some chance that the fact cannot be recalled (i.e., is forgotten) — for example, if too much time passes between storing the fact and then trying to recall that fact.</p>
+<p>The ideas behind Think have been implemented in several languages, but the current Think library is based solely on the <a class="reference external" href="http://www.python.org/">Python</a> programming language. ?? why</p>
+<p>[see <a class="reference internal" href="#salvucci2016">Salvucci2016</a>].</p>
+<dl class="citation">
+<dt class="label" id="salvucci2016"><span class="brackets">Salvucci2016</span></dt>
+<dd><p>Salvucci, D. D. (2016). <a class="reference external" href="http://www.cs.drexel.edu/~salvucci/publications/Salvucci-ICCM16.pdf">Cognitive code: An embedded approach to cognitive modeling</a>. In <em>Proceedings of the 14th International Conference on Cognitive Modeling</em> (pp. 15-20). University Park, PA: The Pennsylvania State University.</p>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
